@@ -10,6 +10,7 @@ interface ScreenContainerProps {
   style?: ViewStyle;
   scrollable?: boolean;
   showFooter?: boolean;
+  gradientType?: "primary" | "secondary" | "accent";
 }
 
 const HEADER_HEIGHT = 60;
@@ -19,14 +20,12 @@ export function ScreenContainer({
   style,
   scrollable = true,
   showFooter = true,
+  gradientType = "primary",
 }: ScreenContainerProps) {
   const { theme } = useTheme();
   const colors = Colors[theme];
 
-  const gradientColors =
-    theme === "dark"
-      ? (["#1a1a1a", "#2d1a1a", "#1a1a2d"] as const) // Dark ominous gradient
-      : (["#f5f5f5", "#e8e8e8", "#f0f0f0"] as const); // Light subtle gradient
+  const gradientColors = colors.gradients[gradientType];
 
   const containerStyle = [styles.container, style];
 

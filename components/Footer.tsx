@@ -1,5 +1,12 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { Linking, StyleSheet, Text, View } from "react-native";
+import {
+  Linking,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Colors } from "../constants/Colors";
 import { useTheme } from "../context/ThemeContext";
 
@@ -13,6 +20,10 @@ export function Footer() {
 
   const handleKingslyPress = () => {
     Linking.openURL("https://github.com/kingslytshepiso");
+  };
+
+  const handleSocialPress = (url: string) => {
+    Linking.openURL(url);
   };
 
   return (
@@ -37,6 +48,35 @@ export function Footer() {
           Cursor
         </Text>
       </Text>
+
+      <View style={styles.socialContainer}>
+        <TouchableOpacity
+          style={styles.socialButton}
+          onPress={() =>
+            handleSocialPress("https://github.com/kingslytshepiso")
+          }
+        >
+          <Ionicons name="logo-github" size={24} color={colors.text} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.socialButton}
+          onPress={() =>
+            handleSocialPress("https://twitter.com/kingslytshepiso")
+          }
+        >
+          <Ionicons name="logo-twitter" size={24} color={colors.text} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.socialButton}
+          onPress={() =>
+            handleSocialPress("www.linkedin.com/in/kingsly-m-062a7bb8")
+          }
+        >
+          <Ionicons name="logo-linkedin" size={24} color={colors.text} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -52,9 +92,21 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     textAlign: "center",
+    marginBottom: 12,
   },
   link: {
     fontWeight: "600",
     textDecorationLine: "underline",
+  },
+  socialContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 16,
+  },
+  socialButton: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: "rgba(128, 128, 128, 0.1)",
   },
 });
