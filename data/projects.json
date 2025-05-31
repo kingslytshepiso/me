@@ -2,6 +2,7 @@
   "projects": [
     {
       "name": "360 Review Application",
+      "image": "../assets/images/logos/ioco.png",
       "company": "iOCO",
       "description": "A platform for stakeholders and team members to review each other post-project.",
       "tech_stack": ["Angular", "Spring Boot", "JUnit", "Cassandra", "Docker"],
@@ -9,29 +10,34 @@
       "responsibilities": [
         "Developed user interface and design",
         "Worked with testing and backend teams for integration"
-      ]
+      ],
+      "github_link": null
     },
     {
       "name": "Katekani Country Lodge Website",
-      "company": "CAPACITI",
+      "image": "../assets/images/logos/1-crown-b.jpg",
+      "company": "CAPACITI(Internship)",
       "description": "A website showcasing accommodations in Mpumalanga.",
       "tech_stack": ["HTML", "CSS", "JavaScript"],
       "role": "Frontend Developer",
       "responsibilities": [
         "Implemented JavaScript logic for dynamic navigation",
         "Developed frontend UI"
-      ]
+      ],
+      "github_link": "https://github.com/kingslytshepiso/Katekani-Country-Lodge-init.git"
     },
     {
       "name": "Fresh Grown Point of Sale System",
-      "company": "CAPACITI",
+      "image": "../assets/images/logos/pp.png",
+      "company": "CAPACITI(Internship)",
       "description": "An application for supermarkets to facilitate fruit and vegetable sales.",
       "tech_stack": ["React", "Java", "Spring Boot"],
       "role": "Frontend Developer",
       "responsibilities": [
         "Designed authentication workflow for users",
         "Developed UI components and transactional logic"
-      ]
+      ],
+      "github_link": "https://github.com/kingslytshepiso/freshgrown.git"
     }
   ]
 }

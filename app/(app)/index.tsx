@@ -1,16 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from "react-native";
 import { ScreenContainer } from "../../components/ScreenContainer";
 import { Colors } from "../../constants/Colors";
 import { useTheme } from "../../context/ThemeContext";
 
 const profileInfo = {
   contact: {
-    email: "kingsly.mokgwathi@gmail.com",
-    phone: "+27 71 123 4567",
+    email: "kingslytshepiso@gmail.com",
+    phone: "+27 76 076 8257",
     location: "South Africa",
   },
-  stack: ["React Native", "TypeScript", "Node.js", "Python", "AWS"],
+  stack: ["React Native", "TypeScript", "Node.js", "Java", "AWS"],
   interests: [
     "Mobile Development",
     "Web Development",
@@ -75,7 +81,7 @@ export default function HomeScreen() {
           { color: theme === "dark" ? "#CE9178" : "#A31515" },
         ]}
       >
-        {isString ? `&quot;${value}&quot;` : value}
+        {isString ? `${value}` : value}
       </Text>
     );
   };
@@ -83,8 +89,24 @@ export default function HomeScreen() {
   return (
     <ScreenContainer gradientType="primary">
       <View style={styles.container}>
-        <View style={styles.contentWrapper}>
-          <View style={styles.greetingSection}>
+        <View
+          style={[
+            styles.contentWrapper,
+            {
+              flexDirection:
+                useWindowDimensions().width < 1024 ? "column" : "row",
+            },
+          ]}
+        >
+          <View
+            style={[
+              styles.greetingSection,
+              {
+                paddingRight: useWindowDimensions().width < 1024 ? 0 : 24,
+                marginBottom: useWindowDimensions().width < 1024 ? 32 : 0,
+              },
+            ]}
+          >
             <Text style={[styles.greeting, { color: colors.text }]}>
               Hi there! 👋
             </Text>
@@ -117,40 +139,22 @@ export default function HomeScreen() {
                   theme === "dark"
                     ? "rgba(255, 255, 255, 0.1)"
                     : "rgba(0, 0, 0, 0.1)",
+                width: useWindowDimensions().width < 1024 ? "100%" : "auto",
               },
             ]}
           >
-            <Text
-              style={[
-                styles.comment,
-                { color: theme === "dark" ? "#6A9955" : "#008000" },
-              ]}
+            <ScrollView
+              style={styles.jsonScrollView}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.jsonScrollContent}
             >
-              {`// Contact & Skills`}
-            </Text>
-            <Text
-              style={[
-                styles.bracket,
-                { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-              ]}
-            >{`{`}</Text>
-
-            <View style={styles.jsonLine}>
               <Text
                 style={[
-                  styles.key,
-                  { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
+                  styles.comment,
+                  { color: theme === "dark" ? "#6A9955" : "#008000" },
                 ]}
               >
-                &nbsp;&nbsp;&quot;contact&quot;
-              </Text>
-              <Text
-                style={[
-                  styles.colon,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                :{" "}
+                {`// Contact & Skills`}
               </Text>
               <Text
                 style={[
@@ -158,157 +162,182 @@ export default function HomeScreen() {
                   { color: theme === "dark" ? "#D4D4D4" : "#000000" },
                 ]}
               >{`{`}</Text>
-            </View>
 
-            <View style={[styles.jsonLine, styles.nestedLine]}>
-              <Text
-                style={[
-                  styles.key,
-                  { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
-                ]}
-              >
-                &nbsp;&nbsp;&nbsp;&nbsp;&quot;email&quot;
-              </Text>
-              <Text
-                style={[
-                  styles.colon,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                :{" "}
-              </Text>
-              {renderJsonValue(profileInfo.contact.email)}
-              <Text
-                style={[
-                  styles.comma,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                ,
-              </Text>
-            </View>
+              <View style={styles.jsonLine}>
+                <Text
+                  style={[
+                    styles.key,
+                    { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
+                  ]}
+                >
+                  &nbsp;&nbsp;&quot;contact&quot;
+                </Text>
+                <Text
+                  style={[
+                    styles.colon,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  :{" "}
+                </Text>
+                <Text
+                  style={[
+                    styles.bracket,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >{`{`}</Text>
+              </View>
 
-            <View style={[styles.jsonLine, styles.nestedLine]}>
-              <Text
-                style={[
-                  styles.key,
-                  { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
-                ]}
-              >
-                &nbsp;&nbsp;&nbsp;&nbsp;&quot;phone&quot;
-              </Text>
-              <Text
-                style={[
-                  styles.colon,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                :{" "}
-              </Text>
-              {renderJsonValue(profileInfo.contact.phone)}
-              <Text
-                style={[
-                  styles.comma,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                ,
-              </Text>
-            </View>
+              <View style={[styles.jsonLine, styles.nestedLine]}>
+                <Text
+                  style={[
+                    styles.key,
+                    { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
+                  ]}
+                >
+                  &nbsp;&nbsp;&nbsp;&nbsp;&quot;email&quot;
+                </Text>
+                <Text
+                  style={[
+                    styles.colon,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  :{" "}
+                </Text>
+                {renderJsonValue(profileInfo.contact.email)}
+                <Text
+                  style={[
+                    styles.comma,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  ,
+                </Text>
+              </View>
 
-            <View style={[styles.jsonLine, styles.nestedLine]}>
-              <Text
-                style={[
-                  styles.key,
-                  { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
-                ]}
-              >
-                &nbsp;&nbsp;&nbsp;&nbsp;&quot;location&quot;
-              </Text>
-              <Text
-                style={[
-                  styles.colon,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                :{" "}
-              </Text>
-              {renderJsonValue(profileInfo.contact.location)}
-            </View>
+              <View style={[styles.jsonLine, styles.nestedLine]}>
+                <Text
+                  style={[
+                    styles.key,
+                    { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
+                  ]}
+                >
+                  &nbsp;&nbsp;&nbsp;&nbsp;&quot;phone&quot;
+                </Text>
+                <Text
+                  style={[
+                    styles.colon,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  :{" "}
+                </Text>
+                {renderJsonValue(profileInfo.contact.phone)}
+                <Text
+                  style={[
+                    styles.comma,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  ,
+                </Text>
+              </View>
 
-            <View style={styles.jsonLine}>
+              <View style={[styles.jsonLine, styles.nestedLine]}>
+                <Text
+                  style={[
+                    styles.key,
+                    { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
+                  ]}
+                >
+                  &nbsp;&nbsp;&nbsp;&nbsp;&quot;location&quot;
+                </Text>
+                <Text
+                  style={[
+                    styles.colon,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  :{" "}
+                </Text>
+                {renderJsonValue(profileInfo.contact.location)}
+              </View>
+
+              <View style={styles.jsonLine}>
+                <Text
+                  style={[
+                    styles.bracket,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  &nbsp;&nbsp;{`}`}
+                </Text>
+                <Text
+                  style={[
+                    styles.comma,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  ,
+                </Text>
+              </View>
+
+              <View style={styles.jsonLine}>
+                <Text
+                  style={[
+                    styles.key,
+                    { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
+                  ]}
+                >
+                  &nbsp;&nbsp;&quot;stack&quot;
+                </Text>
+                <Text
+                  style={[
+                    styles.colon,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  :{" "}
+                </Text>
+                {renderJsonValue(profileInfo.stack)}
+                <Text
+                  style={[
+                    styles.comma,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  ,
+                </Text>
+              </View>
+
+              <View style={styles.jsonLine}>
+                <Text
+                  style={[
+                    styles.key,
+                    { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
+                  ]}
+                >
+                  &nbsp;&nbsp;&quot;interests&quot;
+                </Text>
+                <Text
+                  style={[
+                    styles.colon,
+                    { color: theme === "dark" ? "#D4D4D4" : "#000000" },
+                  ]}
+                >
+                  :{" "}
+                </Text>
+                {renderJsonValue(profileInfo.interests)}
+              </View>
+
               <Text
                 style={[
                   styles.bracket,
                   { color: theme === "dark" ? "#D4D4D4" : "#000000" },
                 ]}
-              >
-                &nbsp;&nbsp;{`}`}
-              </Text>
-              <Text
-                style={[
-                  styles.comma,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                ,
-              </Text>
-            </View>
-
-            <View style={styles.jsonLine}>
-              <Text
-                style={[
-                  styles.key,
-                  { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
-                ]}
-              >
-                &nbsp;&nbsp;&quot;stack&quot;
-              </Text>
-              <Text
-                style={[
-                  styles.colon,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                :{" "}
-              </Text>
-              {renderJsonValue(profileInfo.stack)}
-              <Text
-                style={[
-                  styles.comma,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                ,
-              </Text>
-            </View>
-
-            <View style={styles.jsonLine}>
-              <Text
-                style={[
-                  styles.key,
-                  { color: theme === "dark" ? "#9CDCFE" : "#0000FF" },
-                ]}
-              >
-                &nbsp;&nbsp;&quot;interests&quot;
-              </Text>
-              <Text
-                style={[
-                  styles.colon,
-                  { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-                ]}
-              >
-                :{" "}
-              </Text>
-              {renderJsonValue(profileInfo.interests)}
-            </View>
-
-            <Text
-              style={[
-                styles.bracket,
-                { color: theme === "dark" ? "#D4D4D4" : "#000000" },
-              ]}
-            >{`}`}</Text>
+              >{`}`}</Text>
+            </ScrollView>
           </View>
         </View>
       </View>
@@ -323,14 +352,12 @@ const styles = StyleSheet.create({
   },
   contentWrapper: {
     flex: 1,
-    flexDirection: "row",
     gap: 24,
     paddingHorizontal: 24,
   },
   greetingSection: {
     flex: 1,
     justifyContent: "center",
-    paddingRight: 24,
   },
   greeting: {
     fontSize: 24,
@@ -362,7 +389,6 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 8,
     padding: 12,
-    justifyContent: "center",
     borderWidth: 1,
     shadowColor: "#000",
     shadowOffset: {
@@ -379,10 +405,18 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     opacity: 0.8,
   },
+  jsonScrollView: {
+    flex: 1,
+  },
+  jsonScrollContent: {
+    flexGrow: 1,
+    justifyContent: "center",
+  },
   jsonLine: {
     flexDirection: "row",
     alignItems: "flex-start",
     marginVertical: 1,
+    flexWrap: "wrap",
   },
   nestedLine: {
     marginLeft: 6,
@@ -394,6 +428,7 @@ const styles = StyleSheet.create({
   string: {
     fontSize: 12,
     fontFamily: "SpaceMono",
+    flexShrink: 1,
   },
   bracket: {
     fontSize: 12,
@@ -409,9 +444,11 @@ const styles = StyleSheet.create({
   },
   arrayContainer: {
     marginLeft: 1,
+    flex: 1,
   },
   arrayItem: {
     flexDirection: "row",
     marginLeft: 8,
+    flexWrap: "wrap",
   },
 });

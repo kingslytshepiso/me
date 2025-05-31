@@ -31,51 +31,50 @@ export function Footer() {
       style={[
         styles.container,
         {
-          backgroundColor:
-            theme === "dark"
-              ? "rgba(0, 0, 0, 0.3)"
-              : "rgba(255, 255, 255, 0.3)",
+          backgroundColor: "transparent",
         },
       ]}
     >
-      <Text style={[styles.text, { color: colors.text }]}>
-        Built with ❤️ by{" "}
-        <Text style={styles.link} onPress={handleKingslyPress}>
-          Kingsly
-        </Text>{" "}
-        and{" "}
-        <Text style={styles.link} onPress={handleCursorPress}>
-          Cursor
+      <View style={styles.contentContainer}>
+        <Text style={[styles.text, { color: colors.text }]}>
+          Built with ❤️ by{" "}
+          <Text style={styles.link} onPress={handleKingslyPress}>
+            Kingsly
+          </Text>{" "}
+          using{" "}
+          <Text style={styles.link} onPress={handleCursorPress}>
+            Cursor
+          </Text>
         </Text>
-      </Text>
 
-      <View style={styles.socialContainer}>
-        <TouchableOpacity
-          style={styles.socialButton}
-          onPress={() =>
-            handleSocialPress("https://github.com/kingslytshepiso")
-          }
-        >
-          <Ionicons name="logo-github" size={24} color={colors.text} />
-        </TouchableOpacity>
+        <View style={styles.socialContainer}>
+          <TouchableOpacity
+            style={styles.socialButton}
+            onPress={() =>
+              handleSocialPress("https://github.com/kingslytshepiso")
+            }
+          >
+            <Ionicons name="logo-github" size={20} color={colors.text} />
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.socialButton}
-          onPress={() =>
-            handleSocialPress("https://twitter.com/kingslytshepiso")
-          }
-        >
-          <Ionicons name="logo-twitter" size={24} color={colors.text} />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.socialButton}
+            onPress={() =>
+              handleSocialPress("https://twitter.com/kingslytshepiso")
+            }
+          >
+            <Ionicons name="logo-twitter" size={20} color={colors.text} />
+          </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.socialButton}
-          onPress={() =>
-            handleSocialPress("www.linkedin.com/in/kingsly-m-062a7bb8")
-          }
-        >
-          <Ionicons name="logo-linkedin" size={24} color={colors.text} />
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.socialButton}
+            onPress={() =>
+              handleSocialPress("www.linkedin.com/in/kingsly-m-062a7bb8")
+            }
+          >
+            <Ionicons name="logo-linkedin" size={20} color={colors.text} />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -83,16 +82,18 @@ export function Footer() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    alignItems: "center",
-    justifyContent: "center",
+    padding: 12,
     borderTopWidth: 1,
     borderTopColor: "rgba(128, 128, 128, 0.2)",
   },
+  contentContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 16,
+  },
   text: {
-    fontSize: 14,
-    textAlign: "center",
-    marginBottom: 12,
+    fontSize: 13,
   },
   link: {
     fontWeight: "600",
@@ -100,13 +101,12 @@ const styles = StyleSheet.create({
   },
   socialContainer: {
     flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
-    gap: 16,
+    gap: 8,
   },
   socialButton: {
-    padding: 8,
-    borderRadius: 8,
+    padding: 6,
+    borderRadius: 6,
     backgroundColor: "rgba(128, 128, 128, 0.1)",
   },
 });
