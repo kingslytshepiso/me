@@ -1,0 +1,47 @@
+{
+  "experience": [
+    {
+      "company": "Blue Pearl",
+      "position": "Associate Developer",
+      "start_date": "August 2024",
+      "end_date": "Current",
+      "responsibilities": [
+        "Building mobile applications using React Native and Expo",
+        "Developing the Blue mobile application",
+        "Deploying applications on AWS cloud",
+        "Managing cloud migrations for customers",
+        "Working on business partner journeys and lead generation"
+      ],
+      "tech_stack": ["React Native", "Expo", "AWS"]
+    },
+    {
+      "company": "iOCO",
+      "position": "Application Developer Intern",
+      "start_date": "October 2023",
+      "end_date": "July 2024",
+      "responsibilities": [
+        "Developed APIs using Spring Boot and Spring Framework",
+        "Used testing tools like JUnit, Selenium, and Docker",
+        "Deployed applications on Microsoft Azure",
+        "Worked on 360 Reviews app using Angular and Java Spring Boot",
+        "Implemented Scrum Agile methodologies",
+        "Debugged and improved application performance"
+      ],
+      "tech_stack": ["Spring Boot", "Angular", "Azure", "Docker"]
+    },
+    {
+      "company": "CAPACITI",
+      "position": "Fullstack Developer Candidate Intern",
+      "start_date": "March 2023",
+      "end_date": "September 2023",
+      "responsibilities": [
+        "Built websites using HTML, CSS, and JavaScript",
+        "Learned Java and React for development",
+        "Worked in teams to improve collaboration and presentation skills",
+        "Contributed to various software applications",
+        "Gained experience in office environments"
+      ],
+      "tech_stack": ["HTML", "CSS", "JavaScript", "React", "Java"]
+    }
+  ]
+}

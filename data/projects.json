@@ -1,0 +1,37 @@
+{
+  "projects": [
+    {
+      "name": "360 Review Application",
+      "company": "iOCO",
+      "description": "A platform for stakeholders and team members to review each other post-project.",
+      "tech_stack": ["Angular", "Spring Boot", "JUnit", "Cassandra", "Docker"],
+      "role": "Frontend Developer",
+      "responsibilities": [
+        "Developed user interface and design",
+        "Worked with testing and backend teams for integration"
+      ]
+    },
+    {
+      "name": "Katekani Country Lodge Website",
+      "company": "CAPACITI",
+      "description": "A website showcasing accommodations in Mpumalanga.",
+      "tech_stack": ["HTML", "CSS", "JavaScript"],
+      "role": "Frontend Developer",
+      "responsibilities": [
+        "Implemented JavaScript logic for dynamic navigation",
+        "Developed frontend UI"
+      ]
+    },
+    {
+      "name": "Fresh Grown Point of Sale System",
+      "company": "CAPACITI",
+      "description": "An application for supermarkets to facilitate fruit and vegetable sales.",
+      "tech_stack": ["React", "Java", "Spring Boot"],
+      "role": "Frontend Developer",
+      "responsibilities": [
+        "Designed authentication workflow for users",
+        "Developed UI components and transactional logic"
+      ]
+    }
+  ]
+}
