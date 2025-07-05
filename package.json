@@ -34,8 +34,10 @@
     "expo-symbols": "~0.4.4",
     "expo-system-ui": "~5.0.7",
     "expo-web-browser": "~14.1.6",
+    "me": "file:",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-json-pretty": "^2.2.0",
     "react-native": "0.79.2",
     "react-native-gesture-handler": "~2.24.0",
     "react-native-paper": "^5.14.5",
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@playwright/test": "^1.53.2",
     "@types/fs-extra": "^11.0.4",
     "@types/react": "~19.0.10",
     "@types/react-native-vector-icons": "^6.4.18",
