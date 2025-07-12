@@ -1,21 +1,113 @@
 {
   "projects": [
     {
+      "name": "BlueApp",
+      "image": "../assets/images/logos/blueapp.png",
+      "company": "Blue Pearl",
+      "description": "A recruitment platform powered by AI-driven matching to connect ICT contractors with hiring companies, streamlining candidate discovery and job-description generation using IBM WatsonX.",
+      "tech_stack": [
+        "Figma",
+        "React Native",
+        "Expo",
+        "Java 11",
+        "Springboot",
+        "AWS Cognito",
+        "IBM WatsonX"
+      ],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Designed and developed the mobile version of BlueApp",
+        "Implemented AI-driven matching algorithms",
+        "Integrated IBM WatsonX for candidate discovery",
+        "Streamlined job-description generation process",
+        "Enhanced hiring efficiency and accuracy",
+        "Modernized CI/CD pipelines using AWS tools",
+        "Improved deployment speed and scalability across environments"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "PlayerLinc",
+      "image": "../assets/images/logos/playerlinc.png",
+      "company": "Blue Pearl",
+      "description": "A global sports engagement platform that connects players, recruiters, and supporters through shared moments and interactions.",
+      "tech_stack": ["Figma", "React Native", "Expo", "Supabase"],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Led design and development of proof of concept (POC)",
+        "Built minimum viable product (MVP) for mobile application",
+        "Established scalable foundation based on business requirements",
+        "Designed user interface using Figma",
+        "Developed mobile application using React Native and Expo",
+        "Implemented database and backend services using Supabase",
+        "Contributed to successful project funding approval"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Athena",
+      "image": "../assets/images/logos/athena.png",
+      "company": "Blue Pearl",
+      "description": "A healthcare financing solution that enables patients to pay medical expenses in manageable monthly instalments, while ensuring full and timely payments to medical practices.",
+      "tech_stack": ["Figma", "NextJS", "React", "Supabase"],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed proof of concept for healthcare financing platform",
+        "Designed user interface using Figma",
+        "Built frontend application with NextJS and React",
+        "Implemented database and backend services using Supabase",
+        "Facilitated successful funding proposal creation",
+        "Contributed to application development approval and forward momentum"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "ToDo",
+      "company": "Personal Project",
+      "description": "A comprehensive task management platform with robust security features, enabling seamless management of personal, team, and organizational tasks with advanced authentication and real-time collaboration capabilities.",
+      "tech_stack": [
+        "NextJS",
+        "React",
+        "Tailwind CSS",
+        "Java",
+        "Spring Boot",
+        "MongoDB",
+        "Redis",
+        "Docker",
+        "Google Authentication",
+        "JWT"
+      ],
+      "role": "Full Stack Developer",
+      "responsibilities": [
+        "Designed and developed responsive frontend using NextJS and Tailwind CSS",
+        "Implemented robust backend architecture with Spring Boot and Java",
+        "Integrated Google Authentication and JWT token-based security",
+        "Built scalable database design using MongoDB with Redis caching",
+        "Containerized application using Docker for deployment flexibility",
+        "Created multi-level task management (personal, team, organizational)",
+        "Implemented real-time task synchronization and collaboration features"
+      ],
+      "github_link": null
+    },
+    {
       "name": "360 Review Application",
       "image": "../assets/images/logos/ioco.png",
       "company": "iOCO",
-      "description": "A platform for stakeholders and team members to review each other post-project.",
+      "description": "A digital platform that replaced manual Excel-based processes for collecting stakeholder feedback on internal projects, streamlining peer-to-peer evaluations for more efficient and structured performance reviews across teams.",
       "tech_stack": ["Angular", "Spring Boot", "JUnit", "Cassandra", "Docker"],
       "role": "Frontend Developer",
       "responsibilities": [
-        "Developed user interface and design",
+        "Collaborated with the frontend team to design and implement UI/UX",
+        "Replaced manual Excel-based feedback collection processes",
+        "Streamlined peer-to-peer evaluation workflows",
+        "Enabled efficient and structured performance reviews",
         "Worked with testing and backend teams for integration"
       ],
       "github_link": null
     },
     {
       "name": "Katekani Country Lodge Website",
-      "image": "../assets/images/logos/1-crown-b.jpg",
+      "image": "../assets/images/logos/Katekani-lodge.jpg",
       "company": "CAPACITI(Internship)",
       "description": "A website showcasing accommodations in Mpumalanga.",
       "tech_stack": ["HTML", "CSS", "JavaScript"],
@@ -38,6 +130,109 @@
         "Developed UI components and transactional logic"
       ],
       "github_link": "https://github.com/kingslytshepiso/freshgrown.git"
+    },
+    {
+      "name": "Claims Management System",
+      "image": "../assets/images/logos/claim-manager.png",
+      "company": "External Contractor",
+      "description": "A platform designed to streamline digital auto insurance claims, enabling most claims to be resolved within a week with integrated in-app and phone-based customer service.",
+      "tech_stack": ["React", "Meteor", "MongoDB", "AWS"],
+      "role": "External Contractor",
+      "responsibilities": [
+        "Contributed to optimization and portability of mobile application",
+        "Updated key components to enhance performance",
+        "Improved cross-device compatibility",
+        "Ensured efficient claim initiation and tracking for users",
+        "Maintained integrated customer service features"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "FlowIQ",
+      "company": "Blue Pearl",
+      "description": "A warehouse management system that leverages AI to help forecast and manage costs, profit, and more for small business owners in the Southern African region, with multi-language support for local accessibility.",
+      "tech_stack": ["NextJS", "React", "Tailwind CSS", "AI/ML"],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed warehouse management system using NextJS and React",
+        "Implemented AI-powered forecasting and cost management features",
+        "Created multi-language support for Southern African languages",
+        "Built responsive UI using Tailwind CSS for optimal user experience",
+        "Designed system to serve small business owners in the region",
+        "Developed application as part of funding proposal strategy"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "FlowScan",
+      "company": "Blue Pearl",
+      "description": "A mobile application that works hand-in-hand with FlowIQ to allow shop owners to scan products and process purchase requests seamlessly, integrated with AI and designed for offline functionality using SQLite.",
+      "tech_stack": ["React Native", "Expo", "SQLite", "AI/ML"],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed mobile application using React Native and Expo",
+        "Implemented product scanning functionality for shop owners",
+        "Created seamless purchase request processing system",
+        "Integrated AI capabilities for enhanced product recognition",
+        "Implemented SQLite database for offline transaction storage",
+        "Built offline-first architecture for reliable operation",
+        "Developed application as part of funding proposal strategy"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Lexi AI",
+      "image": "../assets/images/logos/Lexi-ai.png",
+      "company": "Blue Pearl",
+      "description": "A ChatGPT clone specifically designed for law research, featuring billing and subscription management capabilities to support legal professionals in their research and analysis workflows.",
+      "tech_stack": ["NextJS", "Supabase", "AI/ML"],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed ChatGPT-like interface using NextJS",
+        "Specialized AI model for law research and analysis",
+        "Implemented billing and subscription management system",
+        "Integrated Supabase for database and authentication",
+        "Created specialized features for legal professionals",
+        "Built application to facilitate funding acquisition"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Sensor Networks",
+      "image": "../assets/images/logos/Sensor Networks.png",
+      "company": "Blue Pearl",
+      "description": "An energy monitoring application that uses geyser telemetry data and household energy usage to create leaderboards for different suburbs, providing recommendations through a chatbot for energy savings and detailed device metrics.",
+      "tech_stack": ["React Native", "Expo", "IoT", "AI/ML"],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed cross-platform application using React Native and Expo",
+        "Implemented geyser telemetry data collection and analysis",
+        "Created household energy usage monitoring system",
+        "Built suburb-based leaderboards for energy consumption",
+        "Integrated AI-powered chatbot for energy saving recommendations",
+        "Provided detailed device metrics and usage analytics",
+        "Developed application as part of funding proposal strategy"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Zendacare",
+      "image": "../assets/images/logos/zendacare.png",
+      "company": "Blue Pearl",
+      "description": "An AI-powered healthcare platform that provides patients with AI-generated health recommendations, doctor interactions, and image-based health evaluations, while enabling administrators to analyze metrics, forecast disease spread, and detect health anomalies using advanced AI analytics.",
+      "tech_stack": ["React Native", "Expo", "AI/ML"],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed cross-platform application using React Native and Expo",
+        "Implemented AI-generated health recommendations for patients",
+        "Created patient-doctor interaction platform",
+        "Built image-based health evaluation and diagnosis system",
+        "Developed admin dashboard with AI-powered analytics",
+        "Implemented disease spread forecasting and alert systems",
+        "Created anomaly detection algorithms for health data analysis",
+        "Built application as part of funding proposal strategy"
+      ],
+      "github_link": null
     }
   ]
 }
