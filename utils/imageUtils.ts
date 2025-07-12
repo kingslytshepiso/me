@@ -3,7 +3,7 @@ import { ImageSourcePropType } from "react-native";
 // Centralized image imports
 const projectImages: Record<string, ImageSourcePropType> = {
   "ioco.png": require("../assets/images/logos/ioco.png"),
-  "Katekani-lodge.jpg": require("../assets/images/logos/Katekani-lodge.jpg"),
+  "Katekani-lodge.png": require("../assets/images/logos/Katekani-lodge.png"),
   "pp.png": require("../assets/images/logos/pp.png"),
   "playerlinc.png": require("../assets/images/logos/playerlinc.png"),
   "athena.png": require("../assets/images/logos/athena.png"),

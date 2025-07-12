@@ -56,7 +56,7 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
         <Dialog.Title style={[styles.dialogTitle, { color: colors.text }]}>
           {project.name}
         </Dialog.Title>
-        <Dialog.Content style={{ flex: 1, minHeight: 0, padding: 0 }}>
+        <Dialog.Content style={{ flex: 4, minHeight: 0, padding: 0 }}>
           <ScrollView
             style={{ flex: 1, minHeight: 0 }}
             contentContainerStyle={{
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
   dialogImage: {
     width: "60%",
     height: "60%",
+    borderRadius: 8,
   },
   dialogHeaderContent: {
     flex: 1,

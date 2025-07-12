@@ -87,7 +87,7 @@
         "Created multi-level task management (personal, team, organizational)",
         "Implemented real-time task synchronization and collaboration features"
       ],
-      "github_link": null
+      "github_link": "https://github.com/kingslytshepiso/to-do-frontend.git"
     },
     {
       "name": "360 Review Application",
@@ -107,7 +107,7 @@
     },
     {
       "name": "Katekani Country Lodge Website",
-      "image": "../assets/images/logos/Katekani-lodge.jpg",
+      "image": "../assets/images/logos/Katekani-lodge.png",
       "company": "CAPACITI(Internship)",
       "description": "A website showcasing accommodations in Mpumalanga.",
       "tech_stack": ["HTML", "CSS", "JavaScript"],
