@@ -2,6 +2,7 @@ import React from "react";
 import {
   Image,
   ImageSourcePropType,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -10,6 +11,7 @@ import { Button, Chip, Dialog, Portal } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Colors } from "../constants/Colors";
 import { useTheme } from "../context/ThemeContext";
+import { useDialogLayout } from "../hooks/useDialogLayout";
 import { Project } from "../types/project";
 
 interface ProjectDialogProps {
@@ -27,12 +29,7 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
 }) => {
   const { theme } = useTheme();
   const colors = Colors[theme];
-
-  const handleGithubPress = () => {
-    if (project?.github_link) {
-      window.open(project.github_link, "_blank");
-    }
-  };
+  const layout = useDialogLayout();
 
   if (!project) return null;
 
@@ -45,97 +42,117 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
           styles.dialog,
           {
             backgroundColor: theme === "dark" ? "#1E1E1E" : "#FFFFFF",
-            maxWidth: 600,
-            width: "90%",
+            maxWidth: layout.maxWidth,
+            maxHeight: layout.maxHeight,
+            width: layout.width,
             alignSelf: "center",
             marginTop: "auto",
             marginBottom: "auto",
+            flexDirection: "column",
+            flex: 1,
           },
         ]}
       >
         <Dialog.Title style={[styles.dialogTitle, { color: colors.text }]}>
           {project.name}
         </Dialog.Title>
-        <Dialog.Content style={styles.dialogContent}>
-          <View style={styles.dialogHeader}>
-            <View style={styles.dialogImageContainer}>
-              {project.image ? (
-                <Image
-                  source={getImageSource(project.image)}
-                  style={styles.dialogImage}
-                  resizeMode="contain"
-                  accessible={true}
-                  accessibilityLabel={`${project.name} logo`}
-                />
-              ) : (
-                <Icon
-                  name="code-braces"
-                  size={50}
-                  color={
-                    theme === "dark"
-                      ? "rgba(255, 255, 255, 0.3)"
-                      : "rgba(0, 0, 0, 0.3)"
-                  }
-                />
+        <Dialog.Content style={{ flex: 1, minHeight: 0, padding: 0 }}>
+          <ScrollView
+            style={{ flex: 1, minHeight: 0 }}
+            contentContainerStyle={{
+              padding: layout.contentPadding,
+              paddingBottom: 24,
+            }}
+            showsVerticalScrollIndicator={true}
+          >
+            {/* Image and Description */}
+            <View style={{ flexDirection: "row", gap: 16, marginBottom: 24 }}>
+              <View
+                style={[
+                  styles.dialogImageContainer,
+                  { width: layout.imageSize, height: layout.imageSize },
+                ]}
+              >
+                {project.image ? (
+                  <Image
+                    source={getImageSource(project.image)}
+                    style={styles.dialogImage}
+                    resizeMode="contain"
+                    accessible={true}
+                    accessibilityLabel={`${project.name} logo`}
+                  />
+                ) : (
+                  <Icon
+                    name="code-braces"
+                    size={layout.imageSize * 0.4}
+                    color={
+                      theme === "dark"
+                        ? "rgba(255, 255, 255, 0.3)"
+                        : "rgba(0, 0, 0, 0.3)"
+                    }
+                  />
+                )}
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={[styles.dialogText, { color: colors.text }]}>
+                  {" "}
+                  {project.description}{" "}
+                </Text>
+                <Text style={[styles.dialogText, { color: colors.text }]}>
+                  {" "}
+                  <Text style={{ fontWeight: "bold" }}>Role: </Text>
+                  {project.role}{" "}
+                </Text>
+              </View>
+            </View>
+            {/* Responsibilities */}
+            <View style={{ marginBottom: layout.sectionMargin }}>
+              <Text style={[styles.dialogSectionTitle, { color: colors.text }]}>
+                Responsibilities
+              </Text>
+              {project.responsibilities.map(
+                (responsibility: string, index: number) => (
+                  <Text
+                    key={index}
+                    style={[styles.dialogText, { color: colors.text }]}
+                  >
+                    • {responsibility}
+                  </Text>
+                )
               )}
             </View>
-            <View style={styles.dialogHeaderContent}>
-              <Text style={[styles.dialogText, { color: colors.text }]}>
-                {project.description}
+            {/* Tech Stack */}
+            <View style={{ marginBottom: layout.sectionMargin }}>
+              <Text style={[styles.dialogSectionTitle, { color: colors.text }]}>
+                Tech Stack
               </Text>
-              <Text style={[styles.dialogText, { color: colors.text }]}>
-                <Text style={{ fontWeight: "bold" }}>Role: </Text>
-                {project.role}
-              </Text>
+              <View style={styles.dialogTechStack}>
+                {project.tech_stack.map((tech: string, techIndex: number) => (
+                  <Chip
+                    key={techIndex}
+                    style={[
+                      styles.techChip,
+                      {
+                        backgroundColor:
+                          theme === "dark"
+                            ? "rgba(255, 255, 255, 0.1)"
+                            : "rgba(0, 0, 0, 0.05)",
+                      },
+                    ]}
+                    textStyle={[styles.techChipText, { color: colors.text }]}
+                  >
+                    {tech}
+                  </Chip>
+                ))}
+              </View>
             </View>
-          </View>
-
-          <View style={styles.dialogSection}>
-            <Text style={[styles.dialogSectionTitle, { color: colors.text }]}>
-              Responsibilities
-            </Text>
-            {project.responsibilities.map(
-              (responsibility: string, index: number) => (
-                <Text
-                  key={index}
-                  style={[styles.dialogText, { color: colors.text }]}
-                >
-                  • {responsibility}
-                </Text>
-              )
-            )}
-          </View>
-
-          <View style={styles.dialogSection}>
-            <Text style={[styles.dialogSectionTitle, { color: colors.text }]}>
-              Tech Stack
-            </Text>
-            <View style={styles.dialogTechStack}>
-              {project.tech_stack.map((tech: string, techIndex: number) => (
-                <Chip
-                  key={techIndex}
-                  style={[
-                    styles.techChip,
-                    {
-                      backgroundColor:
-                        theme === "dark"
-                          ? "rgba(255, 255, 255, 0.1)"
-                          : "rgba(0, 0, 0, 0.05)",
-                    },
-                  ]}
-                  textStyle={[styles.techChipText, { color: colors.text }]}
-                >
-                  {tech}
-                </Chip>
-              ))}
-            </View>
-          </View>
+          </ScrollView>
         </Dialog.Content>
         <Dialog.Actions style={styles.dialogActions}>
           {project.github_link && (
             <Button
               mode="contained"
-              onPress={handleGithubPress}
+              onPress={() => window.open(project.github_link!, "_blank")}
               style={[
                 styles.githubButton,
                 {
@@ -196,6 +213,14 @@ const styles = StyleSheet.create({
   dialogContent: {
     paddingHorizontal: 24,
     paddingVertical: 16,
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingBottom: 16,
+    flexGrow: 1,
   },
   dialogHeader: {
     flexDirection: "row",
@@ -203,8 +228,6 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   dialogImageContainer: {
-    width: 120,
-    height: 120,
     borderRadius: 8,
     overflow: "hidden",
     backgroundColor: "rgba(255, 255, 255, 0.05)",

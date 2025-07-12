@@ -12,6 +12,11 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 
+// Import global CSS for web only
+if (typeof window !== "undefined") {
+  require("./global.css");
+}
+
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [fontsLoaded, fontError] = useFonts({
