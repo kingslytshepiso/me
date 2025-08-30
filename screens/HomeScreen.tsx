@@ -1,9 +1,9 @@
 import React from "react";
 import ReactJsonPretty from "react-json-pretty";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
-import { ScreenContainer } from "../../components/ScreenContainer";
-import { Colors } from "../../constants/Colors";
-import { useTheme } from "../../context/ThemeContext";
+import { ScreenContainer } from "../components/ScreenContainer";
+import { Colors } from "../constants/Colors";
+import { useTheme } from "../context/ThemeContext";
 
 const profileInfo = {
   contact: {
@@ -40,6 +40,7 @@ export default function HomeScreen() {
             styles.contentWrapper,
             {
               flexDirection: isDesktop ? "row" : "column",
+              paddingTop: 0,
             },
           ]}
         >

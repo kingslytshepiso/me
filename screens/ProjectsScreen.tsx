@@ -1,16 +1,16 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { ProjectCard } from "../../components/ProjectCard";
-import { ProjectDialog } from "../../components/ProjectDialog";
-import { ScreenContainer } from "../../components/ScreenContainer";
-import { Colors } from "../../constants/Colors";
-import { useTheme } from "../../context/ThemeContext";
-import projectsData from "../../data/projects.json";
-import { useResponsiveLayout } from "../../hooks/useResponsiveLayout";
-import { Project } from "../../types/project";
-import { getImageSource } from "../../utils/imageUtils";
+import { ProjectCard } from "../components/ProjectCard";
+import { ProjectDialog } from "../components/ProjectDialog";
+import { ScreenContainer } from "../components/ScreenContainer";
+import { Colors } from "../constants/Colors";
+import { useTheme } from "../context/ThemeContext";
+import projectsData from "../data/projects.json";
+import { useResponsiveLayout } from "../hooks/useResponsiveLayout";
+import { Project } from "../types/project";
+import { getImageSource } from "../utils/imageUtils";
 
-export default function Projects() {
+export default function ProjectsScreen() {
   const { theme } = useTheme();
   const colors = Colors[theme];
   const { cardWidth, maxCardWidth, minCardWidth } = useResponsiveLayout();

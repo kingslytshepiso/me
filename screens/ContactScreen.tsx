@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { ScreenContainer } from "../../components/ScreenContainer";
-import { Colors } from "../../constants/Colors";
-import { useTheme } from "../../context/ThemeContext";
+import { ScreenContainer } from "../components/ScreenContainer";
+import { Colors } from "../constants/Colors";
+import { useTheme } from "../context/ThemeContext";
 
 const contactInfo = {
   email: "kingslytshepiso@gmail.com",
@@ -23,7 +23,7 @@ const socialLinks = {
   linkedin: "www.linkedin.com/in/kingsly-m-062a7bb8",
 };
 
-export default function Contact() {
+export default function ContactScreen() {
   const { theme } = useTheme();
   const colors = Colors[theme];
 

@@ -25,7 +25,9 @@ export function Header() {
 
   const isSmallScreen = width < BREAKPOINT;
 
-  const handleNavigation = (route: "/projects" | "/contact") => {
+  const handleNavigation = (
+    route: "/" | "/about" | "/projects" | "/contact"
+  ) => {
     router.push(route);
     setMenuVisible(false);
   };
@@ -73,6 +75,12 @@ export function Header() {
                 backgroundColor: theme === "dark" ? "#1a1a1a" : "#ffffff",
               }}
             >
+              <Menu.Item
+                onPress={() => handleNavigation("/")}
+                title="Home"
+                titleStyle={{ color: colors.text }}
+              />
+              <Divider />
               <Menu.Item
                 onPress={() => handleNavigation("/projects")}
                 title="Projects"

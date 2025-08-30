@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { ScreenContainer } from "../../components/ScreenContainer";
-import { Colors } from "../../constants/Colors";
-import { useTheme } from "../../context/ThemeContext";
+import { ScreenContainer } from "../components/ScreenContainer";
+import { Colors } from "../constants/Colors";
+import { useTheme } from "../context/ThemeContext";
 
-export default function About() {
+export default function AboutScreen() {
   const { theme } = useTheme();
   const colors = Colors[theme];
 

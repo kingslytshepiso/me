@@ -45,8 +45,11 @@ export default function RootLayout() {
       theme={colorScheme === "dark" ? MD3DarkTheme : MD3LightTheme}
     >
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(app)" options={{ headerShown: false }} />
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="index" />
+          <Stack.Screen name="about" />
+          <Stack.Screen name="projects" />
+          <Stack.Screen name="contact" />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />
