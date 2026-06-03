@@ -1,47 +1,52 @@
 {
   "experience": [
     {
-      "company": "Blue Pearl",
-      "position": "Associate Developer",
-      "start_date": "August 2024",
+      "company": "Droppa",
+      "position": "Software Developer",
+      "start_date": "February 2026",
       "end_date": "Current",
       "responsibilities": [
-        "Building mobile applications using React Native and Expo",
-        "Developing the Blue mobile application",
-        "Deploying applications on AWS cloud",
-        "Managing cloud migrations for customers",
-        "Working on business partner journeys and lead generation"
+        "Architecting and maintaining full-stack applications across Java Spring Boot, Java EE (EJB), Angular, and React",
+        "Bridging legacy stability with modern, agile, and scalable architectures",
+        "Evolving Droppa's internal ecosystem and operational backbone"
       ],
-      "tech_stack": ["React Native", "Expo", "AWS"]
+      "tech_stack": ["Java Spring Boot", "Java EE", "Angular", "React"]
     },
     {
-      "company": "iOCO",
+      "company": "Blue Pearl",
+      "position": "Associate Developer 2",
+      "start_date": "August 2024",
+      "end_date": "December 2025",
+      "responsibilities": [
+        "Led technical evolution of the BlueApp ecosystem with Java Spring Boot microservices",
+        "Embedded IBM WatsonX and AWS Bedrock AI via secure, low-latency Java middleware",
+        "Delivered React web and React Native mobile platforms with strategic POC/MVP work"
+      ],
+      "tech_stack": ["Java Spring Boot", "React", "React Native", "Expo", "AWS", "IBM WatsonX"]
+    },
+    {
+      "company": "iOCO/EOH",
       "position": "Application Developer Intern",
       "start_date": "October 2023",
       "end_date": "July 2024",
       "responsibilities": [
-        "Developed APIs using Spring Boot and Spring Framework",
-        "Used testing tools like JUnit, Selenium, and Docker",
-        "Deployed applications on Microsoft Azure",
-        "Worked on 360 Reviews app using Angular and Java Spring Boot",
-        "Implemented Scrum Agile methodologies",
-        "Debugged and improved application performance"
+        "Developed RESTful services with Java Spring Boot for the 360 Reviews application",
+        "Collaborated in a high-velocity Agile team on UI/UX with Angular and Material Design",
+        "Ensured platform stability through modern testing frameworks"
       ],
-      "tech_stack": ["Spring Boot", "Angular", "Azure", "Docker"]
+      "tech_stack": ["Java Spring Boot", "Angular", "Azure", "Material Design"]
     },
     {
       "company": "CAPACITI",
-      "position": "Fullstack Developer Candidate Intern",
+      "position": "Full-Stack Developer Candidate Intern",
       "start_date": "March 2023",
       "end_date": "September 2023",
       "responsibilities": [
-        "Built websites using HTML, CSS, and JavaScript",
-        "Learned Java and React for development",
-        "Worked in teams to improve collaboration and presentation skills",
-        "Contributed to various software applications",
-        "Gained experience in office environments"
+        "Expanded from HTML, CSS, and JavaScript into Java and React full-stack development",
+        "Built dynamic, data-driven applications in an intensive training program",
+        "Strengthened collaboration and delivery skills in team-based projects"
       ],
-      "tech_stack": ["HTML", "CSS", "JavaScript", "React", "Java"]
+      "tech_stack": ["HTML", "CSS", "JavaScript", "Java", "React"]
     }
   ]
 }

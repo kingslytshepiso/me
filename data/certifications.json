@@ -1,0 +1,148 @@
+{
+  "certifications": [
+    {
+      "id": "pcap-31-03",
+      "name": "PCAP – Certified Associate Python Programmer",
+      "issuer": "Python Institute",
+      "earnedDate": "2026-04",
+      "badgeKey": "python-pcap",
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "aws-saa",
+      "name": "AWS Certified Solutions Architect – Associate",
+      "issuer": "AWS",
+      "earnedDate": "2026-04",
+      "badgeKey": "aws-saa",
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "aws-dva",
+      "name": "AWS Certified Developer – Associate",
+      "issuer": "AWS",
+      "earnedDate": "2026-03",
+      "badgeKey": "aws-dva",
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "azure-devops-expert",
+      "name": "Microsoft Certified: DevOps Engineer Expert",
+      "issuer": "Microsoft",
+      "earnedDate": "2026-02",
+      "badgeKey": "azure",
+      "azureLevel": "expert",
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "azure-administrator",
+      "name": "Microsoft Certified: Azure Administrator Associate",
+      "issuer": "Microsoft",
+      "earnedDate": "2026-01",
+      "badgeKey": "azure",
+      "azureLevel": "associate",
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "azure-data-fundamentals",
+      "name": "Microsoft Certified: Azure Data Fundamentals",
+      "issuer": "Microsoft",
+      "earnedDate": "2026-01",
+      "badgeKey": "azure",
+      "azureLevel": "foundation",
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "azure-developer",
+      "name": "Microsoft Certified: Azure Developer Associate",
+      "issuer": "Microsoft",
+      "earnedDate": "2025-12",
+      "badgeKey": "azure",
+      "azureLevel": "associate",
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "snowpro-core",
+      "name": "SnowPro Core Certification",
+      "issuer": "Snowflake",
+      "earnedDate": "2025-11",
+      "badgeKey": null,
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "pcep-30-02",
+      "name": "PCEP – Certified Entry-Level Python Programmer",
+      "issuer": "Python Institute",
+      "earnedDate": "2025-10",
+      "badgeKey": "python-pcep",
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "aws-ccp",
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "AWS",
+      "earnedDate": "2025-10",
+      "badgeKey": "aws-clf",
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "aws-ai-practitioner",
+      "name": "AWS Certified AI Practitioner",
+      "issuer": "AWS",
+      "earnedDate": "2025-09",
+      "badgeKey": "aws-aif",
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "azure-ai-engineer",
+      "name": "Microsoft Certified: Azure AI Engineer Associate",
+      "issuer": "Microsoft",
+      "earnedDate": "2025-08",
+      "badgeKey": "azure",
+      "azureLevel": "associate",
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "power-bi-associate",
+      "name": "Microsoft Certified: Power BI Data Analyst Associate",
+      "issuer": "Microsoft",
+      "earnedDate": "2025-07",
+      "badgeKey": "azure",
+      "azureLevel": "associate",
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "azure-fundamentals",
+      "name": "Microsoft Certified: Azure Fundamentals",
+      "issuer": "Microsoft",
+      "earnedDate": "2024-05",
+      "badgeKey": "azure",
+      "azureLevel": "foundation",
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "power-up-low-code",
+      "name": "Microsoft Power Up Program – Low-code Maker",
+      "issuer": "Microsoft",
+      "earnedDate": "2024-04",
+      "badgeKey": null,
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    },
+    {
+      "id": "oracle-java-junior",
+      "name": "Java Certified Junior Associate",
+      "issuer": "Oracle",
+      "earnedDate": "2023-08",
+      "badgeKey": null,
+      "azureLevel": null,
+      "credentialUrl": "https://www.credly.com/badges/TODO_REPLACE"
+    }
+  ]
+}

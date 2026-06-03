@@ -22,3 +22,55 @@ html {
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #444 #0000; /* Firefox */
 }
+
+/* Certification badge strip — drag scroll zone */
+.certBadgeStrip {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  overflow: visible;
+}
+
+.certBadgeItem {
+  pointer-events: auto;
+  overflow: visible;
+  z-index: 1;
+}
+
+.certBadgeItem:hover {
+  z-index: 10000;
+}
+
+.certBadgeStrip--grabbing {
+  cursor: grabbing;
+}
+
+/* Certification badge strip — thin scrollbar, visible on hover/scroll */
+.certBadgeScroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 128, 128, 0.25) transparent;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.certBadgeScroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.certBadgeScroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.certBadgeScroll::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.2);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.certBadgeScroll--active {
+  scrollbar-color: rgba(128, 128, 128, 0.55) transparent;
+}
+
+.certBadgeScroll--active::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.55);
+}

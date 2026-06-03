@@ -1,6 +1,7 @@
 import React from "react";
 import ReactJsonPretty from "react-json-pretty";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
+import { CertificationBadgeStrip } from "../components/CertificationBadgeStrip";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { Colors } from "../constants/Colors";
 import { useTheme } from "../context/ThemeContext";
@@ -9,10 +10,22 @@ const profileInfo = {
   contact: {
     email: "kingslytshepiso@gmail.com",
     phone: "+27 76 076 8257",
-    location: "South Africa",
+    location: "Midrand, Gauteng",
   },
-  stack: ["React", "Javascript/TypeScript", "Java", "AWS"],
-  interests: ["Application Development", "UI/UX Design", "Testing", "AI/ML"],
+  stack: [
+    "Java Spring Boot",
+    "React",
+    "React Native",
+    "AWS",
+    "Azure",
+    "Python",
+  ],
+  interests: [
+    "AI Engineering",
+    "Cloud Architecture",
+    "API Development",
+    "Mobile",
+  ],
 };
 
 export default function HomeScreen() {
@@ -65,10 +78,14 @@ export default function HomeScreen() {
             <Text style={[styles.role, { color: "#569CD6" }]}>
               Full Stack Developer
             </Text>
+            <CertificationBadgeStrip />
             <View style={styles.introContainer}>
               <Text style={[styles.intro, { color: colors.text }]}>
-                I build innovative solutions and create great user experiences.
-                Passionate about turning ideas into reality through code.
+                Full-stack developer building scalable applications with Java
+                Spring Boot, React, and AWS/Azure. I ship AI-powered solutions
+                and modernize legacy systems—currently evolving Droppa&apos;s
+                platform while delivering high-impact work across cloud, APIs,
+                and mobile.
               </Text>
             </View>
           </View>
@@ -128,7 +145,7 @@ const styles = StyleSheet.create({
   },
   role: {
     fontSize: 24,
-    marginBottom: 24,
+    marginBottom: 8,
     fontFamily: "SpaceMono",
   },
   introContainer: {
