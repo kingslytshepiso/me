@@ -12,6 +12,11 @@ const projectImages: Record<string, ImageSourcePropType> = {
   "Sensor Networks.png": require("../assets/images/logos/Sensor Networks.png"),
   "zendacare.png": require("../assets/images/logos/zendacare.png"),
   "blueapp.png": require("../assets/images/logos/blueapp.png"),
+  "droppa.png": require("../assets/images/logos/droppa.png"),
+  "skynet.png": require("../assets/images/logos/skynet.png"),
+  "a2z.png": require("../assets/images/logos/a2z.png"),
+  "khelobedu.png": require("../assets/images/logos/khelobedu.png"),
+  "bridged-platforms.png": require("../assets/images/logos/bridged-platforms.png"),
 };
 
 /**

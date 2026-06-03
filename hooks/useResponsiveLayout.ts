@@ -21,18 +21,13 @@ export const useResponsiveLayout = () => {
     };
 
     const columnCount = getColumnCount();
-
-    // Calculate card width to ensure minimum 2 items per row
-    const getCardWidth = () => {
-      const maxCardsPerRow = Math.max(2, columnCount); // Ensure minimum 2 cards per row
-      return `${100 / maxCardsPerRow}%` as const;
-    };
+    const cardWidth = `${100 / columnCount}%` as const;
 
     return {
       columnCount,
-      cardWidth: getCardWidth(),
+      cardWidth,
       maxCardWidth: width >= BREAKPOINT_SM ? 300 : "100%",
-      minCardWidth: 280, // Minimum width to prevent cards from becoming too small
+      minCardWidth: columnCount === 1 ? 0 : 280,
     };
   }, [width]);
 

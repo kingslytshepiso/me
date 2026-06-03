@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { Colors } from "../constants/Colors";
+import { screenHeaderStyles } from "../constants/screenHeader";
 import { useTheme } from "../context/ThemeContext";
 
 export default function AboutScreen() {
@@ -11,11 +12,19 @@ export default function AboutScreen() {
   return (
     <ScreenContainer gradientType="primary">
       <View style={styles.container}>
-        <Text style={[styles.title, { color: colors.text }]}>About Me</Text>
-        <Text style={[styles.text, { color: colors.text }]}>
-          Welcome to my portfolio! I&apos;m a passionate developer focused on
-          creating innovative solutions and building great user experiences.
-        </Text>
+        <View style={screenHeaderStyles.header}>
+          <Text
+            style={[screenHeaderStyles.title, { color: colors.text }]}
+          >
+            About Me
+          </Text>
+          <Text
+            style={[screenHeaderStyles.subtitle, { color: colors.text }]}
+          >
+            Welcome to my portfolio! I&apos;m a passionate developer focused on
+            creating innovative solutions and building great user experiences.
+          </Text>
+        </View>
       </View>
     </ScreenContainer>
   );
@@ -26,15 +35,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 16,
-    textAlign: "center",
-    lineHeight: 24,
   },
 });

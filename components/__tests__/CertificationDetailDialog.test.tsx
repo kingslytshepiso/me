@@ -36,11 +36,10 @@ describe("CertificationDetailDialog", () => {
     expect(screen.getByText("Earned April 2026")).toBeTruthy();
   });
 
-  it("disables View credential when URL is placeholder", () => {
+  it("shows View on LinkedIn action", () => {
     renderDialog(true);
-    expect(screen.getByText("Credential link coming soon.")).toBeTruthy();
-    const button = screen.getByText("View credential");
-    expect(button).toBeTruthy();
+    expect(screen.getByText("View on LinkedIn")).toBeTruthy();
+    expect(screen.queryByText("Credential link coming soon.")).toBeNull();
   });
 
   it("renders nothing when cert is null", () => {
@@ -53,6 +52,6 @@ describe("CertificationDetailDialog", () => {
         />
       </TestProviders>
     );
-    expect(queryByText("View credential")).toBeNull();
+    expect(queryByText("View on LinkedIn")).toBeNull();
   });
 });

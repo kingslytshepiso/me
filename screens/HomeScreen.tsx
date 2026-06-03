@@ -5,6 +5,7 @@ import { CertificationBadgeStrip } from "../components/CertificationBadgeStrip";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { BREAKPOINT_MD } from "../constants/layout";
 import { Colors } from "../constants/Colors";
+import { LINKEDIN_PROFILE_URL } from "../constants/profileLinks";
 import { useTheme } from "../context/ThemeContext";
 import { useContentPadding } from "../hooks/useContentPadding";
 
@@ -81,7 +82,7 @@ export default function HomeScreen() {
             <Text style={[styles.role, { color: "#569CD6" }]}>
               Full Stack Developer
             </Text>
-            <CertificationBadgeStrip />
+            <CertificationBadgeStrip linkedInUrl={LINKEDIN_PROFILE_URL} />
             <View style={styles.introContainer}>
               <Text style={[styles.intro, { color: colors.text }]}>
                 Full-stack developer building scalable applications with Java

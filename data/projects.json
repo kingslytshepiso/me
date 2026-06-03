@@ -1,6 +1,117 @@
 {
   "projects": [
     {
+      "name": "Droppa Courier Applications",
+      "image": "../assets/images/logos/droppa.png",
+      "company": "Droppa",
+      "description": "Proprietary courier and delivery applications powering Droppa's logistics operations—connecting customers and operations with nationwide delivery workflows, third-party courier integrations, and AWS-backed services across Java EE, Angular, and React clients.",
+      "tech_stack": [
+        "Java EE",
+        "Angular",
+        "React",
+        "AWS",
+        "Courier integrations"
+      ],
+      "role": "Full Stack Developer",
+      "responsibilities": [
+        "Developed and extended customer-facing and internal courier applications",
+        "Integrated AWS services and third-party courier partners [specific partners TBD]",
+        "Built and maintained features across Java EE, Angular, and React codebases",
+        "Provide ongoing maintenance, production support, and defect resolution",
+        "Monitor performance and reliability across delivery workflows",
+        "Maintain integration upkeep for AWS and courier APIs",
+        "Support legacy and modern stack evolution within Droppa's ecosystem"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Skynet Driver Application",
+      "image": "../assets/images/logos/skynet.png",
+      "company": "Droppa",
+      "description": "A proprietary driver application for courier and last-mile delivery operations—backend services on Java Spring Boot with event-driven processing (Kafka) and AWS Rekognition for operational automation [specific workflows TBD].",
+      "tech_stack": [
+        "Java",
+        "Spring Boot",
+        "Kafka",
+        "AWS Rekognition",
+        "AWS"
+      ],
+      "role": "Backend Developer",
+      "responsibilities": [
+        "Designed and implemented backend services for driver and delivery operations",
+        "Integrated Kafka for event-driven processing across operational workflows",
+        "Incorporated AWS Rekognition and related AWS services [use cases TBD]",
+        "Provide ongoing maintenance, production support, and defect resolution",
+        "Monitor system performance and backend reliability",
+        "Maintain integration upkeep for AWS and messaging infrastructure",
+        "Support operational modules and services [specific modules TBD]"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "A2Z Bidding Application",
+      "image": "../assets/images/logos/a2z.png",
+      "company": "Droppa",
+      "description": "A proprietary bidding platform backend for spaza and township retail delivery—matching delivery demand with capacity through Spring Boot APIs and operational workflows [market rules TBD].",
+      "tech_stack": [
+        "Java",
+        "Spring Boot"
+      ],
+      "role": "Backend Developer",
+      "responsibilities": [
+        "Developed Spring Boot APIs supporting bidding and delivery matching workflows",
+        "Implemented backend logic for spaza and township retail delivery operations",
+        "Provide ongoing maintenance, production support, and defect resolution",
+        "Monitor API performance and service reliability",
+        "Maintain integration upkeep with operational and third-party systems [integrations TBD]",
+        "Evolve bidding rules and workflows as business requirements change [market rules TBD]"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "KheLobedu Dictionary",
+      "image": "../assets/images/logos/khelobedu.png",
+      "company": "Personal Project",
+      "description": "A personal full-stack dictionary application supporting preservation and everyday use of the KheLobedu language—helping document vocabulary and make the language more accessible digitally, with data and authentication hosted on Supabase.",
+      "tech_stack": [
+        "React Native",
+        "Expo",
+        "Supabase"
+      ],
+      "role": "Full Stack Developer",
+      "responsibilities": [
+        "Designed and developed the mobile dictionary experience using React Native and Expo",
+        "Implemented backend services, data storage, and authentication on Supabase",
+        "Responsible for ongoing feature development and content structure improvements",
+        "Maintain database schemas, APIs, and app releases for production use",
+        "Manage hosting and operational upkeep on Supabase",
+        "Support cultural preservation goals through accessible vocabulary tooling [additional features TBD]"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Bridged Platforms",
+      "image": "../assets/images/logos/bridged-platforms.png",
+      "company": "Bridged Platforms",
+      "description": "The company website for an AI consulting firm, presenting services and positioning for prospective clients, built as a fast, maintainable Vue site deployed on Vercel.",
+      "tech_stack": [
+        "Vue",
+        "HTML",
+        "CSS",
+        "Vercel"
+      ],
+      "role": "Website Developer",
+      "responsibilities": [
+        "Designed and built the marketing site showcasing AI consulting services",
+        "Developed responsive pages and content structure using Vue",
+        "Deployed and configured hosting on Vercel",
+        "Responsible for ongoing site maintenance, content updates, and improvements",
+        "Handle development iterations and production deployments",
+        "Manage hosting, domain, and release workflows on Vercel [analytics TBD]"
+      ],
+      "github_link": null
+    },
+    {
       "name": "BlueApp",
       "image": "../assets/images/logos/blueapp.png",
       "company": "Tech Startup",
@@ -31,7 +142,12 @@
       "image": "../assets/images/logos/playerlinc.png",
       "company": "Tech Startup",
       "description": "A global sports engagement platform that connects players, recruiters, and supporters through shared moments and interactions.",
-      "tech_stack": ["Figma", "React Native", "Expo", "Supabase"],
+      "tech_stack": [
+        "Figma",
+        "React Native",
+        "Expo",
+        "Supabase"
+      ],
       "role": "Associate Developer",
       "responsibilities": [
         "Led design and development of proof of concept (POC)",
@@ -49,7 +165,12 @@
       "image": "../assets/images/logos/athena.png",
       "company": "Healthcare Startup",
       "description": "A healthcare financing solution that enables patients to pay medical expenses in manageable monthly instalments, while ensuring full and timely payments to medical practices.",
-      "tech_stack": ["Figma", "NextJS", "React", "Supabase"],
+      "tech_stack": [
+        "Figma",
+        "NextJS",
+        "React",
+        "Supabase"
+      ],
       "role": "Associate Developer",
       "responsibilities": [
         "Developed proof of concept for healthcare financing platform",
@@ -58,6 +179,159 @@
         "Implemented database and backend services using Supabase",
         "Facilitated successful funding proposal creation",
         "Contributed to application development approval and forward momentum"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Zendacare",
+      "image": "../assets/images/logos/zendacare.png",
+      "company": "Healthcare Startup",
+      "description": "An AI-powered healthcare platform that provides patients with AI-generated health recommendations, doctor interactions, and image-based health evaluations, while enabling administrators to analyze metrics, forecast disease spread, and detect health anomalies using advanced AI analytics.",
+      "tech_stack": [
+        "React Native",
+        "Expo",
+        "AI/ML"
+      ],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed cross-platform application using React Native and Expo",
+        "Implemented AI-generated health recommendations for patients",
+        "Created patient-doctor interaction platform",
+        "Built image-based health evaluation and diagnosis system",
+        "Developed admin dashboard with AI-powered analytics",
+        "Implemented disease spread forecasting and alert systems",
+        "Created anomaly detection algorithms for health data analysis",
+        "Built application as part of funding proposal strategy"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Lexi AI",
+      "image": "../assets/images/logos/Lexi-ai.png",
+      "company": "Tech Startup",
+      "description": "A ChatGPT clone specifically designed for law research, featuring billing and subscription management capabilities to support legal professionals in their research and analysis workflows.",
+      "tech_stack": [
+        "NextJS",
+        "Supabase",
+        "AI/ML"
+      ],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed ChatGPT-like interface using NextJS",
+        "Specialized AI model for law research and analysis",
+        "Implemented billing and subscription management system",
+        "Integrated Supabase for database and authentication",
+        "Created specialized features for legal professionals",
+        "Built application to facilitate funding acquisition"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Sensor Networks",
+      "image": "../assets/images/logos/Sensor Networks.png",
+      "company": "Tech Startup",
+      "description": "An energy monitoring application that uses geyser telemetry data and household energy usage to create leaderboards for different suburbs, providing recommendations through a chatbot for energy savings and detailed device metrics.",
+      "tech_stack": [
+        "React Native",
+        "Expo",
+        "IoT",
+        "AI/ML"
+      ],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed cross-platform application using React Native and Expo",
+        "Implemented geyser telemetry data collection and analysis",
+        "Created household energy usage monitoring system",
+        "Built suburb-based leaderboards for energy consumption",
+        "Integrated AI-powered chatbot for energy saving recommendations",
+        "Provided detailed device metrics and usage analytics",
+        "Developed application as part of funding proposal strategy"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "FlowIQ",
+      "company": "Tech Startup",
+      "description": "A warehouse management system that leverages AI to help forecast and manage costs, profit, and more for small business owners in the Southern African region, with multi-language support for local accessibility.",
+      "tech_stack": [
+        "NextJS",
+        "React",
+        "Tailwind CSS",
+        "AI/ML"
+      ],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed warehouse management system using NextJS and React",
+        "Implemented AI-powered forecasting and cost management features",
+        "Created multi-language support for Southern African languages",
+        "Built responsive UI using Tailwind CSS for optimal user experience",
+        "Designed system to serve small business owners in the region",
+        "Developed application as part of funding proposal strategy"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "FlowScan",
+      "company": "Tech Startup",
+      "description": "A mobile application that works hand-in-hand with FlowIQ to allow shop owners to scan products and process purchase requests seamlessly, integrated with AI and designed for offline functionality using SQLite.",
+      "tech_stack": [
+        "React Native",
+        "Expo",
+        "SQLite",
+        "AI/ML"
+      ],
+      "role": "Associate Developer",
+      "responsibilities": [
+        "Developed mobile application using React Native and Expo",
+        "Implemented product scanning functionality for shop owners",
+        "Created seamless purchase request processing system",
+        "Integrated AI capabilities for enhanced product recognition",
+        "Implemented SQLite database for offline transaction storage",
+        "Built offline-first architecture for reliable operation",
+        "Developed application as part of funding proposal strategy"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "360 Review Application",
+      "image": "../assets/images/logos/ioco.png",
+      "company": "Enterprise Company",
+      "description": "A digital platform that replaced manual Excel-based processes for collecting stakeholder feedback on internal projects, streamlining peer-to-peer evaluations for more efficient and structured performance reviews across teams.",
+      "tech_stack": [
+        "Angular",
+        "Spring Boot",
+        "JUnit",
+        "Cassandra",
+        "Docker"
+      ],
+      "role": "Frontend Developer",
+      "responsibilities": [
+        "Collaborated with the frontend team to design and implement UI/UX",
+        "Replaced manual Excel-based feedback collection processes",
+        "Streamlined peer-to-peer evaluation workflows",
+        "Enabled efficient and structured performance reviews",
+        "Worked with testing and backend teams for integration"
+      ],
+      "github_link": null
+    },
+    {
+      "name": "Claims Management System",
+      "image": "../assets/images/logos/claim-manager.png",
+      "company": "Insurance Company",
+      "description": "A platform designed to streamline digital auto insurance claims, enabling most claims to be resolved within a week with integrated in-app and phone-based customer service.",
+      "tech_stack": [
+        "React",
+        "Meteor",
+        "MongoDB",
+        "AWS"
+      ],
+      "role": "External Contractor",
+      "responsibilities": [
+        "Contributed to optimization and portability of mobile application",
+        "Updated key components to enhance performance",
+        "Improved cross-device compatibility",
+        "Ensured efficient claim initiation and tracking for users",
+        "Maintained integrated customer service features"
       ],
       "github_link": null
     },
@@ -90,132 +364,15 @@
       "github_link": "https://github.com/kingslytshepiso/to-do-frontend.git"
     },
     {
-      "name": "360 Review Application",
-      "image": "../assets/images/logos/ioco.png",
-      "company": "Enterprise Company",
-      "description": "A digital platform that replaced manual Excel-based processes for collecting stakeholder feedback on internal projects, streamlining peer-to-peer evaluations for more efficient and structured performance reviews across teams.",
-      "tech_stack": ["Angular", "Spring Boot", "JUnit", "Cassandra", "Docker"],
-      "role": "Frontend Developer",
-      "responsibilities": [
-        "Collaborated with the frontend team to design and implement UI/UX",
-        "Replaced manual Excel-based feedback collection processes",
-        "Streamlined peer-to-peer evaluation workflows",
-        "Enabled efficient and structured performance reviews",
-        "Worked with testing and backend teams for integration"
-      ],
-      "github_link": null
-    },
-
-    {
-      "name": "Claims Management System",
-      "image": "../assets/images/logos/claim-manager.png",
-      "company": "Insurance Company",
-      "description": "A platform designed to streamline digital auto insurance claims, enabling most claims to be resolved within a week with integrated in-app and phone-based customer service.",
-      "tech_stack": ["React", "Meteor", "MongoDB", "AWS"],
-      "role": "External Contractor",
-      "responsibilities": [
-        "Contributed to optimization and portability of mobile application",
-        "Updated key components to enhance performance",
-        "Improved cross-device compatibility",
-        "Ensured efficient claim initiation and tracking for users",
-        "Maintained integrated customer service features"
-      ],
-      "github_link": null
-    },
-    {
-      "name": "FlowIQ",
-      "company": "Tech Startup",
-      "description": "A warehouse management system that leverages AI to help forecast and manage costs, profit, and more for small business owners in the Southern African region, with multi-language support for local accessibility.",
-      "tech_stack": ["NextJS", "React", "Tailwind CSS", "AI/ML"],
-      "role": "Associate Developer",
-      "responsibilities": [
-        "Developed warehouse management system using NextJS and React",
-        "Implemented AI-powered forecasting and cost management features",
-        "Created multi-language support for Southern African languages",
-        "Built responsive UI using Tailwind CSS for optimal user experience",
-        "Designed system to serve small business owners in the region",
-        "Developed application as part of funding proposal strategy"
-      ],
-      "github_link": null
-    },
-    {
-      "name": "FlowScan",
-      "company": "Tech Startup",
-      "description": "A mobile application that works hand-in-hand with FlowIQ to allow shop owners to scan products and process purchase requests seamlessly, integrated with AI and designed for offline functionality using SQLite.",
-      "tech_stack": ["React Native", "Expo", "SQLite", "AI/ML"],
-      "role": "Associate Developer",
-      "responsibilities": [
-        "Developed mobile application using React Native and Expo",
-        "Implemented product scanning functionality for shop owners",
-        "Created seamless purchase request processing system",
-        "Integrated AI capabilities for enhanced product recognition",
-        "Implemented SQLite database for offline transaction storage",
-        "Built offline-first architecture for reliable operation",
-        "Developed application as part of funding proposal strategy"
-      ],
-      "github_link": null
-    },
-    {
-      "name": "Lexi AI",
-      "image": "../assets/images/logos/Lexi-ai.png",
-      "company": "Tech Startup",
-      "description": "A ChatGPT clone specifically designed for law research, featuring billing and subscription management capabilities to support legal professionals in their research and analysis workflows.",
-      "tech_stack": ["NextJS", "Supabase", "AI/ML"],
-      "role": "Associate Developer",
-      "responsibilities": [
-        "Developed ChatGPT-like interface using NextJS",
-        "Specialized AI model for law research and analysis",
-        "Implemented billing and subscription management system",
-        "Integrated Supabase for database and authentication",
-        "Created specialized features for legal professionals",
-        "Built application to facilitate funding acquisition"
-      ],
-      "github_link": null
-    },
-    {
-      "name": "Sensor Networks",
-      "image": "../assets/images/logos/Sensor Networks.png",
-      "company": "Tech Startup",
-      "description": "An energy monitoring application that uses geyser telemetry data and household energy usage to create leaderboards for different suburbs, providing recommendations through a chatbot for energy savings and detailed device metrics.",
-      "tech_stack": ["React Native", "Expo", "IoT", "AI/ML"],
-      "role": "Associate Developer",
-      "responsibilities": [
-        "Developed cross-platform application using React Native and Expo",
-        "Implemented geyser telemetry data collection and analysis",
-        "Created household energy usage monitoring system",
-        "Built suburb-based leaderboards for energy consumption",
-        "Integrated AI-powered chatbot for energy saving recommendations",
-        "Provided detailed device metrics and usage analytics",
-        "Developed application as part of funding proposal strategy"
-      ],
-      "github_link": null
-    },
-    {
-      "name": "Zendacare",
-      "image": "../assets/images/logos/zendacare.png",
-      "company": "Healthcare Startup",
-      "description": "An AI-powered healthcare platform that provides patients with AI-generated health recommendations, doctor interactions, and image-based health evaluations, while enabling administrators to analyze metrics, forecast disease spread, and detect health anomalies using advanced AI analytics.",
-      "tech_stack": ["React Native", "Expo", "AI/ML"],
-      "role": "Associate Developer",
-      "responsibilities": [
-        "Developed cross-platform application using React Native and Expo",
-        "Implemented AI-generated health recommendations for patients",
-        "Created patient-doctor interaction platform",
-        "Built image-based health evaluation and diagnosis system",
-        "Developed admin dashboard with AI-powered analytics",
-        "Implemented disease spread forecasting and alert systems",
-        "Created anomaly detection algorithms for health data analysis",
-        "Built application as part of funding proposal strategy"
-      ],
-      "github_link": null
-    },
-
-    {
       "name": "Fresh Grown Point of Sale System",
       "image": "../assets/images/logos/pp.png",
       "company": "Retail Company",
       "description": "An application for supermarkets to facilitate fruit and vegetable sales.",
-      "tech_stack": ["React", "Java", "Spring Boot"],
+      "tech_stack": [
+        "React",
+        "Java",
+        "Spring Boot"
+      ],
       "role": "Frontend Developer",
       "responsibilities": [
         "Designed authentication workflow for users",
@@ -228,7 +385,11 @@
       "image": "../assets/images/logos/Katekani-lodge.png",
       "company": "Hospitality Company",
       "description": "A website showcasing accommodations in Mpumalanga.",
-      "tech_stack": ["HTML", "CSS", "JavaScript"],
+      "tech_stack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
       "role": "Frontend Developer",
       "responsibilities": [
         "Implemented JavaScript logic for dynamic navigation",

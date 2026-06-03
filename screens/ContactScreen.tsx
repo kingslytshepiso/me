@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { Colors } from "../constants/Colors";
+import { screenHeaderStyles } from "../constants/screenHeader";
 import { useTheme } from "../context/ThemeContext";
 
 const contactInfo = {
@@ -42,11 +43,24 @@ export default function ContactScreen() {
   return (
     <ScreenContainer gradientType="primary">
       <View style={styles.container}>
-        <Text style={[styles.title, { color: colors.text }]}>Contact Me</Text>
-        <Text style={[styles.text, { color: colors.text }]}>
-          Feel free to reach out! I&apos;m always open to discussing new
-          projects, creative ideas, or opportunities to be part of your vision.
-        </Text>
+        <View style={screenHeaderStyles.header}>
+          <Text
+            style={[screenHeaderStyles.title, { color: colors.text }]}
+          >
+            Contact Me
+          </Text>
+          <Text
+            style={[
+              screenHeaderStyles.subtitle,
+              styles.subtitle,
+              { color: colors.text },
+            ]}
+          >
+            Feel free to reach out! I&apos;m always open to discussing new
+            projects, creative ideas, or opportunities to be part of your
+            vision.
+          </Text>
+        </View>
 
         <View style={styles.contactContainer}>
           <TouchableOpacity
@@ -161,15 +175,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 24,
   },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 16,
-    textAlign: "center",
-    lineHeight: 24,
+  subtitle: {
     marginBottom: 40,
   },
   contactContainer: {

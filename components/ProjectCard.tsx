@@ -12,6 +12,7 @@ interface ProjectCardProps {
   onPress: (project: Project) => void;
   width: number | `${number}%`;
   minWidth?: number;
+  maxWidth?: number | `${number}%`;
   getImageSource: (imagePath: string) => ImageSourcePropType | undefined;
 }
 
@@ -20,6 +21,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   onPress,
   width,
   minWidth,
+  maxWidth,
   getImageSource,
 }) => {
   const { theme } = useTheme();
@@ -39,7 +41,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               ? "rgba(255, 255, 255, 0.1)"
               : "rgba(0, 0, 0, 0.1)",
           width,
-          minWidth: minWidth || 280,
+          minWidth: minWidth ?? 280,
+          maxWidth,
         },
       ]}
       onPress={() => onPress(project)}

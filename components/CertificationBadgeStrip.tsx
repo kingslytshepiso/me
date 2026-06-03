@@ -43,7 +43,13 @@ function getWebClassName(
   };
 }
 
-export function CertificationBadgeStrip() {
+interface CertificationBadgeStripProps {
+  linkedInUrl: string;
+}
+
+export function CertificationBadgeStrip({
+  linkedInUrl,
+}: CertificationBadgeStripProps) {
   const scrollRef = useRef<ScrollView>(null);
   const [scrollX, setScrollX] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
@@ -167,6 +173,7 @@ export function CertificationBadgeStrip() {
         cert={selectedCert}
         visible={dialogVisible}
         onDismiss={handleDismissDialog}
+        linkedInUrl={linkedInUrl}
       />
     </>
   );

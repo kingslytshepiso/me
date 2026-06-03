@@ -6,23 +6,22 @@ import { Button, Dialog, Portal } from "react-native-paper";
 import { Colors } from "../constants/Colors";
 import { BADGE_SIZE } from "../constants/badgeLayout";
 import { useTheme } from "../context/ThemeContext";
-import {
-  Certification,
-  getBadgeImageSource,
-  isPlaceholderCredentialUrl,
-} from "../utils/badgeUtils";
+import { LINKEDIN_PROFILE_URL } from "../constants/profileLinks";
+import { Certification, getBadgeImageSource } from "../utils/badgeUtils";
 import { formatCertDate } from "../utils/formatCertDate";
 
 interface CertificationDetailDialogProps {
   cert: Certification | null;
   visible: boolean;
   onDismiss: () => void;
+  linkedInUrl?: string;
 }
 
 export function CertificationDetailDialog({
   cert,
   visible,
   onDismiss,
+  linkedInUrl = LINKEDIN_PROFILE_URL,
 }: CertificationDetailDialogProps) {
   const { theme } = useTheme();
   const colors = Colors[theme];
@@ -30,12 +29,9 @@ export function CertificationDetailDialog({
   if (!cert) return null;
 
   const imageSource = getBadgeImageSource(cert);
-  const canOpenCredential = !isPlaceholderCredentialUrl(cert.credentialUrl);
 
-  const handleViewCredential = () => {
-    if (canOpenCredential) {
-      Linking.openURL(cert.credentialUrl);
-    }
+  const handleViewLinkedIn = () => {
+    Linking.openURL(linkedInUrl);
   };
 
   return (
@@ -85,21 +81,12 @@ export function CertificationDetailDialog({
             <Text style={[styles.metaSecondary, { color: colors.text }]}>
               Earned {formatCertDate(cert.earnedDate)}
             </Text>
-            {!canOpenCredential && (
-              <Text style={[styles.helper, { color: colors.text }]}>
-                Credential link coming soon.
-              </Text>
-            )}
           </View>
         </Dialog.Content>
         <Dialog.Actions>
           <Button onPress={onDismiss}>Close</Button>
-          <Button
-            mode="contained"
-            onPress={handleViewCredential}
-            disabled={!canOpenCredential}
-          >
-            View credential
+          <Button mode="contained" onPress={handleViewLinkedIn}>
+            View on LinkedIn
           </Button>
         </Dialog.Actions>
       </Dialog>
@@ -144,11 +131,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     opacity: 0.85,
     textAlign: "center",
-  },
-  helper: {
-    fontSize: 13,
-    opacity: 0.7,
-    textAlign: "center",
-    fontStyle: "italic",
   },
 });

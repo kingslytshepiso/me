@@ -4,6 +4,7 @@ import { ProjectCard } from "../components/ProjectCard";
 import { ProjectDialog } from "../components/ProjectDialog";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { Colors } from "../constants/Colors";
+import { screenHeaderStyles } from "../constants/screenHeader";
 import { useTheme } from "../context/ThemeContext";
 import projectsData from "../data/projects.json";
 import { useResponsiveLayout } from "../hooks/useResponsiveLayout";
@@ -30,11 +31,23 @@ export default function ProjectsScreen() {
   return (
     <ScreenContainer gradientType="secondary">
       <View style={styles.container}>
-        <Text style={[styles.title, { color: colors.text }]}>My Projects</Text>
-        <Text style={[styles.text, { color: colors.text }]}>
-          Here you&apos;ll find a collection of my work, including web
-          applications, mobile apps, and other software projects.
-        </Text>
+        <View style={screenHeaderStyles.header}>
+          <Text
+            style={[screenHeaderStyles.title, { color: colors.text }]}
+          >
+            My Projects
+          </Text>
+          <Text
+            style={[
+              screenHeaderStyles.subtitle,
+              styles.subtitle,
+              { color: colors.text },
+            ]}
+          >
+            Here you&apos;ll find a collection of my work, including web
+            applications, mobile apps, and other software projects.
+          </Text>
+        </View>
 
         <View
           style={[styles.gridContainer, { gap: 16, minWidth: minCardWidth }]}
@@ -46,6 +59,7 @@ export default function ProjectsScreen() {
               onPress={handleProjectPress}
               width={cardWidth}
               minWidth={minCardWidth}
+              maxWidth={maxCardWidth}
               getImageSource={getImageSource}
             />
           ))}
@@ -67,18 +81,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
   },
-  title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 16,
-    textAlign: "center",
-    lineHeight: 24,
+  subtitle: {
     marginBottom: 32,
   },
   gridContainer: {
+    width: "100%",
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
