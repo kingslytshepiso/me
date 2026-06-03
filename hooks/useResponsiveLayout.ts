@@ -1,17 +1,23 @@
 import { useMemo } from "react";
 import { useWindowDimensions } from "react-native";
 
+import {
+  BREAKPOINT_LG,
+  BREAKPOINT_MD,
+  BREAKPOINT_SM,
+  BREAKPOINT_XL,
+} from "@/constants/layout";
+
 export const useResponsiveLayout = () => {
   const { width } = useWindowDimensions();
 
   const layout = useMemo(() => {
-    // Calculate number of columns based on screen width
     const getColumnCount = () => {
-      if (width >= 1536) return 4; // 2xl
-      if (width >= 1280) return 3; // xl
-      if (width >= 1024) return 3; // lg
-      if (width >= 768) return 2; // md
-      return 1; // sm and below
+      if (width >= BREAKPOINT_XL) return 4;
+      if (width >= BREAKPOINT_LG) return 3;
+      if (width >= BREAKPOINT_MD) return 3;
+      if (width >= BREAKPOINT_SM) return 2;
+      return 1;
     };
 
     const columnCount = getColumnCount();
@@ -25,7 +31,7 @@ export const useResponsiveLayout = () => {
     return {
       columnCount,
       cardWidth: getCardWidth(),
-      maxCardWidth: width >= 768 ? 300 : "100%",
+      maxCardWidth: width >= BREAKPOINT_SM ? 300 : "100%",
       minCardWidth: 280, // Minimum width to prevent cards from becoming too small
     };
   }, [width]);

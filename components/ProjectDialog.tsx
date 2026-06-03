@@ -1,6 +1,6 @@
+import { Image } from "expo-image";
 import React from "react";
 import {
-  Image,
   ImageSourcePropType,
   ScrollView,
   StyleSheet,
@@ -77,7 +77,8 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
                   <Image
                     source={getImageSource(project.image)}
                     style={styles.dialogImage}
-                    resizeMode="contain"
+                    contentFit="contain"
+                    transition={200}
                     accessible={true}
                     accessibilityLabel={`${project.name} logo`}
                   />

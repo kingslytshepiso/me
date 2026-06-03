@@ -3,6 +3,7 @@ import React from "react";
 import { ScrollView, StyleSheet, View, ViewStyle } from "react-native";
 import { Colors } from "../constants/Colors";
 import { useTheme } from "../context/ThemeContext";
+import { useContentPadding } from "../hooks/useContentPadding";
 import { Footer } from "./Footer";
 
 interface ScreenContainerProps {
@@ -24,6 +25,7 @@ export function ScreenContainer({
 }: ScreenContainerProps) {
   const { theme } = useTheme();
   const colors = Colors[theme];
+  const contentPadding = useContentPadding();
 
   const gradientColors = colors.gradients[gradientType];
 
@@ -37,7 +39,14 @@ export function ScreenContainer({
       end={{ x: 1, y: 1 }}
     >
       <View
-        style={[styles.contentContainer, { paddingTop: HEADER_HEIGHT + 16 }]}
+        style={[
+          styles.contentContainer,
+          {
+            paddingTop: HEADER_HEIGHT + contentPadding.vertical,
+            paddingHorizontal: contentPadding.horizontal,
+            paddingBottom: contentPadding.vertical,
+          },
+        ]}
       >
         <View style={styles.mainContent}>{children}</View>
         {showFooter && <Footer />}
@@ -69,7 +78,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    padding: 16,
   },
   mainContent: {
     flex: 1,

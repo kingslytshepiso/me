@@ -10,20 +10,22 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { Divider, Menu } from "react-native-paper";
+import { BREAKPOINT_SM } from "../constants/layout";
 import { Colors } from "../constants/Colors";
 import { useTheme } from "../context/ThemeContext";
+import { useContentPadding } from "../hooks/useContentPadding";
 
 const HEADER_HEIGHT = 60;
-const BREAKPOINT = 768;
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
   const colors = Colors[theme];
   const router = useRouter();
   const { width } = useWindowDimensions();
+  const contentPadding = useContentPadding();
   const [menuVisible, setMenuVisible] = useState(false);
 
-  const isSmallScreen = width < BREAKPOINT;
+  const isSmallScreen = width < BREAKPOINT_SM;
 
   const handleNavigation = (
     route: "/" | "/about" | "/projects" | "/contact"
@@ -39,7 +41,12 @@ export function Header() {
         tint={theme === "dark" ? "dark" : "light"}
         style={styles.blurContainer}
       >
-        <View style={styles.content}>
+        <View
+          style={[
+            styles.content,
+            { paddingHorizontal: contentPadding.horizontal },
+          ]}
+        >
           {/* Brand */}
           <TouchableOpacity
             style={styles.brandContainer}
@@ -160,7 +167,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingHorizontal: 16,
   },
   brandContainer: {
     flex: 1,

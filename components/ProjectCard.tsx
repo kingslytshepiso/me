@@ -1,11 +1,6 @@
+import { Image } from "expo-image";
 import React from "react";
-import {
-  Image,
-  ImageSourcePropType,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 import { Card, Chip } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Colors } from "../constants/Colors";
@@ -58,7 +53,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             <Image
               source={getImageSource(project.image)}
               style={styles.projectImage}
-              resizeMode="contain"
+              contentFit="contain"
+              transition={200}
               accessible={true}
               accessibilityLabel={`${project.name} logo`}
             />

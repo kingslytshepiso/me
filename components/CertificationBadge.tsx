@@ -1,12 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import React, { useCallback, useMemo } from "react";
-import {
-  Image,
-  Platform,
-  Pressable,
-  StyleSheet,
-  View,
-} from "react-native";
+import { Platform, Pressable, StyleSheet, View } from "react-native";
 import Animated, {
   interpolate,
   useAnimatedStyle,
@@ -97,7 +92,8 @@ export function CertificationBadge({
             <Image
               source={imageSource}
               style={styles.badgeImage}
-              resizeMode="contain"
+              contentFit="contain"
+              transition={200}
               accessibilityIgnoresInvertColors
             />
           ) : (

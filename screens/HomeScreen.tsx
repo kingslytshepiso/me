@@ -3,8 +3,10 @@ import ReactJsonPretty from "react-json-pretty";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import { CertificationBadgeStrip } from "../components/CertificationBadgeStrip";
 import { ScreenContainer } from "../components/ScreenContainer";
+import { BREAKPOINT_MD } from "../constants/layout";
 import { Colors } from "../constants/Colors";
 import { useTheme } from "../context/ThemeContext";
+import { useContentPadding } from "../hooks/useContentPadding";
 
 const profileInfo = {
   contact: {
@@ -32,7 +34,8 @@ export default function HomeScreen() {
   const { theme } = useTheme();
   const colors = Colors[theme];
   const { width } = useWindowDimensions();
-  const isDesktop = width >= 1024;
+  const contentPadding = useContentPadding();
+  const isDesktop = width >= BREAKPOINT_MD;
 
   const jsonPrettyTheme = {
     main: `background:transparent;color:${colors.text};line-height:1.7;padding:12px 12px;`,
@@ -53,7 +56,7 @@ export default function HomeScreen() {
             styles.contentWrapper,
             {
               flexDirection: isDesktop ? "row" : "column",
-              paddingTop: 0,
+              paddingHorizontal: isDesktop ? contentPadding.horizontal : 0,
             },
           ]}
         >
@@ -121,16 +124,14 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 12,
   },
   contentWrapper: {
     flex: 1,
     gap: 24,
-    paddingHorizontal: 24,
   },
   greetingSection: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
   },
   greeting: {
     fontSize: 24,

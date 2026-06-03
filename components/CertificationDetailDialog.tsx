@@ -1,12 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import React from "react";
-import {
-  Image,
-  Linking,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Linking, StyleSheet, Text, View } from "react-native";
 import { Button, Dialog, Portal } from "react-native-paper";
 import { Colors } from "../constants/Colors";
 import { BADGE_SIZE } from "../constants/badgeLayout";
@@ -73,8 +68,8 @@ export function CertificationDetailDialog({
                 <Image
                   source={imageSource}
                   style={styles.badgeImage}
-                  resizeMode="contain"
-                  accessibilityIgnoresInvertColors
+                  contentFit="contain"
+                  transition={200}
                 />
               ) : (
                 <Ionicons
