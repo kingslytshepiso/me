@@ -1,4 +1,4 @@
-import { Image } from "expo-image";
+import { AppImage } from "./AppImage";
 import React from "react";
 import { ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 import { Card, Chip } from "react-native-paper";
@@ -53,11 +53,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <Card.Content style={styles.cardContent}>
         <View style={styles.imageContainer}>
           {project.image ? (
-            <Image
+            <AppImage
               source={getImageSource(project.image)}
               style={styles.projectImage}
               contentFit="contain"
-              transition={200}
+              placeholderKind="logo"
+              recyclingKey={project.image}
               accessible={true}
               accessibilityLabel={`${project.name} logo`}
             />

@@ -1,18 +1,20 @@
-import { Image } from "expo-image";
+import { AppImage } from "./AppImage";
 import React from "react";
 import {
   ImageSourcePropType,
+  Linking,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from "react-native";
-import { Button, Chip, Dialog, Portal } from "react-native-paper";
+import { Button, Chip, Dialog } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Colors } from "../constants/Colors";
 import { useTheme } from "../context/ThemeContext";
 import { useDialogLayout } from "../hooks/useDialogLayout";
 import { Project } from "../types/project";
+import { AppFullScreenOverlay } from "./AppFullScreenOverlay";
 
 interface ProjectDialogProps {
   project: Project | null;
@@ -33,23 +35,24 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
 
   if (!project) return null;
 
+  const surfaceColor = theme === "dark" ? "#1E1E1E" : "#FFFFFF";
+
   return (
-    <Portal>
-      <Dialog
-        visible={visible}
-        onDismiss={onDismiss}
+    <AppFullScreenOverlay
+      visible={visible}
+      onDismiss={onDismiss}
+      scrimAccessibilityLabel="Close project details"
+      contentStyle={styles.overlayCenter}
+    >
+      <View
         style={[
           styles.dialog,
+          styles.dialogSurface,
           {
-            backgroundColor: theme === "dark" ? "#1E1E1E" : "#FFFFFF",
+            backgroundColor: surfaceColor,
             maxWidth: layout.maxWidth,
             maxHeight: layout.maxHeight,
             width: layout.width,
-            alignSelf: "center",
-            marginTop: "auto",
-            marginBottom: "auto",
-            flexDirection: "column",
-            flex: 1,
           },
         ]}
       >
@@ -74,11 +77,12 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
                 ]}
               >
                 {project.image ? (
-                  <Image
+                  <AppImage
                     source={getImageSource(project.image)}
                     style={styles.dialogImage}
                     contentFit="contain"
-                    transition={200}
+                    placeholderKind="logo"
+                    recyclingKey={project.image}
                     accessible={true}
                     accessibilityLabel={`${project.name} logo`}
                   />
@@ -150,10 +154,28 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
           </ScrollView>
         </Dialog.Content>
         <Dialog.Actions style={styles.dialogActions}>
+          {project.website_link && (
+            <Button
+              mode="contained"
+              onPress={() => Linking.openURL(project.website_link!)}
+              style={[
+                styles.siteButton,
+                {
+                  backgroundColor: theme === "dark" ? "#4EC9B0" : "#0a7ea4",
+                },
+              ]}
+              labelStyle={styles.buttonLabel}
+              icon={({ size, color }) => (
+                <Icon name="web" size={20} color="#FFFFFF" />
+              )}
+            >
+              Visit Site
+            </Button>
+          )}
           {project.github_link && (
             <Button
               mode="contained"
-              onPress={() => window.open(project.github_link!, "_blank")}
+              onPress={() => Linking.openURL(project.github_link!)}
               style={[
                 styles.githubButton,
                 {
@@ -188,14 +210,26 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
             Close
           </Button>
         </Dialog.Actions>
-      </Dialog>
-    </Portal>
+      </View>
+    </AppFullScreenOverlay>
   );
 };
 
 const styles = StyleSheet.create({
+  overlayCenter: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 16,
+  },
   dialog: {
+    flexDirection: "column",
+    flex: 1,
+    maxHeight: "90%",
+  },
+  dialogSurface: {
     borderRadius: 12,
+    overflow: "hidden",
     elevation: 5,
     shadowColor: "#000",
     shadowOffset: {
@@ -270,6 +304,10 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   githubButton: {
+    borderRadius: 6,
+    marginRight: 0,
+  },
+  siteButton: {
     borderRadius: 6,
     marginRight: 0,
   },

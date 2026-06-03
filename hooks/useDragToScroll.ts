@@ -3,13 +3,10 @@ import { Platform, ScrollView } from "react-native";
 
 const DRAG_THRESHOLD_PX = 8;
 
-function getClientX(event: {
-  nativeEvent?: { clientX?: number };
-  clientX?: number;
-}): number {
-  return event.nativeEvent?.clientX ?? event.clientX ?? 0;
-}
-
+/**
+ * Handles horizontal drag-to-scroll on web for badge strips.
+ * Strip expand/collapse on hover is owned by CertificationBadgeStrip + useDebouncedBoolean.
+ */
 export function useDragToScroll(scrollRef: React.RefObject<ScrollView | null>) {
   const isWeb = Platform.OS === "web";
   const [isDragging, setIsDragging] = useState(false);
@@ -50,26 +47,6 @@ export function useDragToScroll(scrollRef: React.RefObject<ScrollView | null>) {
   const resetDidDrag = useCallback(() => {
     didDragRef.current = false;
   }, []);
-
-  const webHandlers = isWeb
-    ? {
-        onMouseDown: (e: {
-          nativeEvent?: { clientX?: number };
-          clientX?: number;
-          preventDefault?: () => void;
-        }) => {
-          e.preventDefault?.();
-        },
-        onMouseMove: (e: {
-          nativeEvent?: { clientX?: number };
-          clientX?: number;
-        }) => {
-          moveDrag(getClientX(e));
-        },
-        onMouseUp: endDrag,
-        onMouseLeave: endDrag,
-      }
-    : {};
 
   return {
     isDragging,

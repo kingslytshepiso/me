@@ -107,9 +107,10 @@
         "Deployed and configured hosting on Vercel",
         "Responsible for ongoing site maintenance, content updates, and improvements",
         "Handle development iterations and production deployments",
-        "Manage hosting, domain, and release workflows on Vercel [analytics TBD]"
+        "Manage hosting, domain, release workflows, and Vercel Web Analytics on the company site"
       ],
-      "github_link": null
+      "github_link": null,
+      "website_link": "https://www.bridgedplatforms.co.za?utm_source=portfolio&utm_medium=project&utm_campaign=services"
     },
     {
       "name": "BlueApp",

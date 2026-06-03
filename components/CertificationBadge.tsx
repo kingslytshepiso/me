@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
+import { AppImage } from "./AppImage";
 import React, { useCallback, useMemo } from "react";
 import { Platform, Pressable, StyleSheet, View } from "react-native";
 import Animated, {
@@ -89,12 +89,14 @@ export function CertificationBadge({
       >
         <Animated.View style={[styles.badgeInner, animatedStyle]}>
           {imageSource ? (
-            <Image
+            <AppImage
               source={imageSource}
               style={styles.badgeImage}
               contentFit="contain"
-              transition={200}
+              placeholderKind="badge"
+              recyclingKey={cert.id}
               accessibilityIgnoresInvertColors
+              {...(isWeb ? { draggable: false as const } : {})}
             />
           ) : (
             <View

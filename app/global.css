@@ -23,18 +23,46 @@ html {
   scrollbar-color: #444 #0000; /* Firefox */
 }
 
+/* Full-screen overlay blur (see components/overlay) */
+.app-overlay-web-blur {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  will-change: backdrop-filter;
+}
+
 /* Certification badge strip — drag scroll zone */
 .certBadgeStrip {
   user-select: none;
   -webkit-user-select: none;
   cursor: grab;
   overflow: visible;
+  height: 72px;
+  transition: height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certBadgeStrip--expanded {
+  overflow: visible;
+  height: 124px;
+}
+
+.certBadgeStrip img,
+.certBadgeStrip picture,
+.certBadgeStrip [role="img"] {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
 }
 
 .certBadgeItem {
   pointer-events: auto;
   overflow: visible;
   z-index: 1;
+  min-height: 60px;
+  transition: min-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certBadgeStrip--expanded .certBadgeItem {
+  min-height: 108px;
 }
 
 .certBadgeItem:hover {

@@ -42,6 +42,22 @@ describe("CertificationTooltip", () => {
     expect(onHoverChange).toHaveBeenCalledWith(false);
   });
 
+  it("does not set inline minHeight on web wrapper (CSS controls layout)", () => {
+    Platform.OS = "web";
+    renderWithProviders(
+      <CertificationTooltip title="PCAP">
+        <Text>child</Text>
+      </CertificationTooltip>
+    );
+
+    const wrapper = screen.getByTestId("certification-tooltip-wrapper");
+    const flatStyle = Array.isArray(wrapper.props.style)
+      ? Object.assign({}, ...wrapper.props.style)
+      : wrapper.props.style;
+
+    expect(flatStyle.minHeight).toBeUndefined();
+  });
+
   it("renders child on native without web tooltip wrapper", () => {
     Platform.OS = "ios";
     renderWithProviders(

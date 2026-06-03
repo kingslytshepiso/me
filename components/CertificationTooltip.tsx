@@ -11,7 +11,6 @@ import { Tooltip } from "react-native-paper";
 import { Colors } from "../constants/Colors";
 import {
   BADGE_SIZE,
-  BADGE_SLOT_HEIGHT,
   BADGE_TOOLTIP_GAP,
   BADGE_TOOLTIP_MAX_WIDTH,
   type BadgeTooltipAlign,
@@ -133,7 +132,6 @@ const styles = StyleSheet.create({
   webWrapper: {
     position: "relative",
     width: BADGE_SIZE + 4,
-    minHeight: BADGE_SLOT_HEIGHT,
     paddingHorizontal: 2,
     overflow: "visible",
     zIndex: 1,

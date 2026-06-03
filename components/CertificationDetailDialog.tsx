@@ -1,14 +1,15 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
+import { AppImage } from "./AppImage";
 import React from "react";
 import { Linking, StyleSheet, Text, View } from "react-native";
-import { Button, Dialog, Portal } from "react-native-paper";
+import { Button, Dialog } from "react-native-paper";
 import { Colors } from "../constants/Colors";
 import { BADGE_SIZE } from "../constants/badgeLayout";
 import { useTheme } from "../context/ThemeContext";
 import { LINKEDIN_PROFILE_URL } from "../constants/profileLinks";
 import { Certification, getBadgeImageSource } from "../utils/badgeUtils";
 import { formatCertDate } from "../utils/formatCertDate";
+import { AppFullScreenOverlay } from "./AppFullScreenOverlay";
 
 interface CertificationDetailDialogProps {
   cert: Certification | null;
@@ -29,21 +30,20 @@ export function CertificationDetailDialog({
   if (!cert) return null;
 
   const imageSource = getBadgeImageSource(cert);
+  const surfaceColor = theme === "dark" ? "#1E1E1E" : "#FFFFFF";
 
   const handleViewLinkedIn = () => {
     Linking.openURL(linkedInUrl);
   };
 
   return (
-    <Portal>
-      <Dialog
-        visible={visible}
-        onDismiss={onDismiss}
-        style={[
-          styles.dialog,
-          { backgroundColor: theme === "dark" ? "#1E1E1E" : "#FFFFFF" },
-        ]}
-      >
+    <AppFullScreenOverlay
+      visible={visible}
+      onDismiss={onDismiss}
+      scrimAccessibilityLabel="Close certification details"
+      contentStyle={styles.overlayCenter}
+    >
+      <View style={[styles.dialogSurface, { backgroundColor: surfaceColor }]}>
         <Dialog.Title style={[styles.title, { color: colors.text }]}>
           {cert.name}
         </Dialog.Title>
@@ -61,11 +61,12 @@ export function CertificationDetailDialog({
               ]}
             >
               {imageSource ? (
-                <Image
+                <AppImage
                   source={imageSource}
                   style={styles.badgeImage}
                   contentFit="contain"
-                  transition={200}
+                  placeholderKind="badge"
+                  recyclingKey={cert.id}
                 />
               ) : (
                 <Ionicons
@@ -89,17 +90,30 @@ export function CertificationDetailDialog({
             View on LinkedIn
           </Button>
         </Dialog.Actions>
-      </Dialog>
-    </Portal>
+      </View>
+    </AppFullScreenOverlay>
   );
 }
 
 const DIALOG_BADGE_SIZE = BADGE_SIZE + 24;
 
 const styles = StyleSheet.create({
-  dialog: {
+  overlayCenter: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 24,
+  },
+  dialogSurface: {
     maxWidth: 400,
-    alignSelf: "center",
+    width: "100%",
+    borderRadius: 12,
+    overflow: "hidden",
+    elevation: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   title: {
     fontSize: 18,

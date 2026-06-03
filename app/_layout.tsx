@@ -19,6 +19,8 @@ import {
 } from "@/context/ThemeContext";
 import { useColorSchemeHydration } from "@/hooks/useColorSchemeHydration";
 import { useAppFonts } from "@/hooks/useFonts";
+import { FloatingContactFab } from "@/components/FloatingContactFab";
+import { WebAnalytics } from "@/components/WebAnalytics";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -87,6 +89,7 @@ function RootLayoutInner() {
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style={isDark ? "light" : "dark"} />
+        <FloatingContactFab />
       </NavigationThemeProvider>
     </PaperProvider>
   );
@@ -95,6 +98,7 @@ function RootLayoutInner() {
 export default function RootLayout() {
   return (
     <AppThemeProvider>
+      <WebAnalytics />
       <RootLayoutInner />
     </AppThemeProvider>
   );

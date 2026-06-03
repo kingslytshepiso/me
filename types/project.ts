@@ -7,4 +7,5 @@ export interface Project {
   responsibilities: string[];
   image?: string;
   github_link?: string | null;
+  website_link?: string | null;
 }

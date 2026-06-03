@@ -5,30 +5,19 @@ import { CertificationBadgeStrip } from "../components/CertificationBadgeStrip";
 import { ScreenContainer } from "../components/ScreenContainer";
 import { BREAKPOINT_MD } from "../constants/layout";
 import { Colors } from "../constants/Colors";
+import { PROFILE } from "../constants/profile";
 import { LINKEDIN_PROFILE_URL } from "../constants/profileLinks";
 import { useTheme } from "../context/ThemeContext";
 import { useContentPadding } from "../hooks/useContentPadding";
 
 const profileInfo = {
   contact: {
-    email: "kingslytshepiso@gmail.com",
-    phone: "+27 76 076 8257",
-    location: "Midrand, Gauteng",
+    email: PROFILE.contact.email,
+    phone: PROFILE.contact.phone,
+    location: PROFILE.contact.location,
   },
-  stack: [
-    "Java Spring Boot",
-    "React",
-    "React Native",
-    "AWS",
-    "Azure",
-    "Python",
-  ],
-  interests: [
-    "AI Engineering",
-    "Cloud Architecture",
-    "API Development",
-    "Mobile",
-  ],
+  stack: PROFILE.stack,
+  interests: PROFILE.interests,
 };
 
 export default function HomeScreen() {
@@ -77,10 +66,10 @@ export default function HomeScreen() {
               I&apos;m
             </Text>
             <Text style={[styles.name, { color: "#4EC9B0" }]}>
-              Kingsly Mokgwathi
+              {PROFILE.name}
             </Text>
             <Text style={[styles.role, { color: "#569CD6" }]}>
-              Full Stack Developer
+              {PROFILE.title}
             </Text>
             <CertificationBadgeStrip linkedInUrl={LINKEDIN_PROFILE_URL} />
             <View style={styles.introContainer}>
