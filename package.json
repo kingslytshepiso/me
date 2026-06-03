@@ -10,7 +10,7 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "prebuild:web": "node scripts/copy-assets.js",
-    "build:web": "expo export --platform web",
+    "build:web": "npm run prebuild:web && expo export --platform web",
     "deploy": "npm run build:web && gh-pages -d dist"
   },
   "dependencies": {
