@@ -1,6 +1,24 @@
 {
   "certifications": [
     {
+      "id": "github-administration",
+      "name": "GitHub Administration Certification",
+      "issuer": "Microsoft",
+      "earnedDate": "2026-06",
+      "badgeKey": "github-administration",
+      "azureLevel": null,
+      "credentialUrl": "https://learn.microsoft.com/api/credentials/share/en-us/kingslyMokgwathi-5489/9B50A8D5A91399DA?sharingId=21CF9C60CCCF4686"
+    },
+    {
+      "id": "azure-solutions-architect-expert",
+      "name": "Microsoft Certified: Azure Solutions Architect Expert",
+      "issuer": "Microsoft",
+      "earnedDate": "2026-05",
+      "badgeKey": "azure",
+      "azureLevel": "expert",
+      "credentialUrl": "https://learn.microsoft.com/api/credentials/share/en-us/kingslyMokgwathi-5489/EB213BD7339F2496?sharingId=21CF9C60CCCF4686"
+    },
+    {
       "id": "pcap-31-03",
       "name": "PCAP – Certified Associate Python Programmer",
       "issuer": "Python Institute",
@@ -68,9 +86,9 @@
       "name": "SnowPro Core Certification",
       "issuer": "Snowflake",
       "earnedDate": "2025-11",
-      "badgeKey": null,
+      "badgeKey": "snowflake",
       "azureLevel": null,
-      "credentialUrl": "https://www.linkedin.com/in/kingsly-m-062a7bb8"
+      "credentialUrl": "https://achieve.snowflake.com/a83e7744-2ca1-4b65-b171-4963bd443d72#acc.N6xPFd2I"
     },
     {
       "id": "pcep-30-02",

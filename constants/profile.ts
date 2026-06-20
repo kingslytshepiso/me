@@ -12,6 +12,7 @@ export const PROFILE = {
   stack: [
     "Java Spring Boot",
     "React",
+    "Angular",
     "React Native",
     "AWS",
     "Azure",

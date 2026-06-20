@@ -3,18 +3,20 @@ import React from "react";
 import {
   ImageSourcePropType,
   Linking,
-  ScrollView,
   StyleSheet,
   Text,
   View,
 } from "react-native";
-import { Button, Chip, Dialog } from "react-native-paper";
+import { Button, Chip } from "react-native-paper";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Colors } from "../constants/Colors";
+import { DETAIL_DIALOG_MAX_WIDTH_WIDE } from "../constants/detailDialog";
 import { useTheme } from "../context/ThemeContext";
-import { useDialogLayout } from "../hooks/useDialogLayout";
 import { Project } from "../types/project";
-import { AppFullScreenOverlay } from "./AppFullScreenOverlay";
+import { AppDetailDialog } from "./AppDetailDialog";
+
+const LOGO_SIZE = 64;
+const SECTION_MARGIN = 16;
 
 interface ProjectDialogProps {
   project: Project | null;
@@ -31,143 +33,24 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
 }) => {
   const { theme } = useTheme();
   const colors = Colors[theme];
-  const layout = useDialogLayout();
 
   if (!project) return null;
 
-  const surfaceColor = theme === "dark" ? "#1E1E1E" : "#FFFFFF";
-
   return (
-    <AppFullScreenOverlay
+    <AppDetailDialog
       visible={visible}
       onDismiss={onDismiss}
       scrimAccessibilityLabel="Close project details"
-      contentStyle={styles.overlayCenter}
-    >
-      <View
-        style={[
-          styles.dialog,
-          styles.dialogSurface,
-          {
-            backgroundColor: surfaceColor,
-            maxWidth: layout.maxWidth,
-            maxHeight: layout.maxHeight,
-            width: layout.width,
-          },
-        ]}
-      >
-        <Dialog.Title style={[styles.dialogTitle, { color: colors.text }]}>
-          {project.name}
-        </Dialog.Title>
-        <Dialog.Content style={{ flex: 4, minHeight: 0, padding: 0 }}>
-          <ScrollView
-            style={{ flex: 1, minHeight: 0 }}
-            contentContainerStyle={{
-              padding: layout.contentPadding,
-              paddingBottom: 24,
-            }}
-            showsVerticalScrollIndicator={true}
-          >
-            {/* Image and Description */}
-            <View style={{ flexDirection: "row", gap: 16, marginBottom: 24 }}>
-              <View
-                style={[
-                  styles.dialogImageContainer,
-                  { width: layout.imageSize, height: layout.imageSize },
-                ]}
-              >
-                {project.image ? (
-                  <AppImage
-                    source={getImageSource(project.image)}
-                    style={styles.dialogImage}
-                    contentFit="contain"
-                    placeholderKind="logo"
-                    recyclingKey={project.image}
-                    accessible={true}
-                    accessibilityLabel={`${project.name} logo`}
-                  />
-                ) : (
-                  <Icon
-                    name="code-braces"
-                    size={layout.imageSize * 0.4}
-                    color={
-                      theme === "dark"
-                        ? "rgba(255, 255, 255, 0.3)"
-                        : "rgba(0, 0, 0, 0.3)"
-                    }
-                  />
-                )}
-              </View>
-              <View style={{ flex: 1 }}>
-                <Text style={[styles.dialogText, { color: colors.text }]}>
-                  {" "}
-                  {project.description}{" "}
-                </Text>
-                <Text style={[styles.dialogText, { color: colors.text }]}>
-                  {" "}
-                  <Text style={{ fontWeight: "bold" }}>Role: </Text>
-                  {project.role}{" "}
-                </Text>
-              </View>
-            </View>
-            {/* Responsibilities */}
-            <View style={{ marginBottom: layout.sectionMargin }}>
-              <Text style={[styles.dialogSectionTitle, { color: colors.text }]}>
-                Responsibilities
-              </Text>
-              {project.responsibilities.map(
-                (responsibility: string, index: number) => (
-                  <Text
-                    key={index}
-                    style={[styles.dialogText, { color: colors.text }]}
-                  >
-                    • {responsibility}
-                  </Text>
-                )
-              )}
-            </View>
-            {/* Tech Stack */}
-            <View style={{ marginBottom: layout.sectionMargin }}>
-              <Text style={[styles.dialogSectionTitle, { color: colors.text }]}>
-                Tech Stack
-              </Text>
-              <View style={styles.dialogTechStack}>
-                {project.tech_stack.map((tech: string, techIndex: number) => (
-                  <Chip
-                    key={techIndex}
-                    style={[
-                      styles.techChip,
-                      {
-                        backgroundColor:
-                          theme === "dark"
-                            ? "rgba(255, 255, 255, 0.1)"
-                            : "rgba(0, 0, 0, 0.05)",
-                      },
-                    ]}
-                    textStyle={[styles.techChipText, { color: colors.text }]}
-                  >
-                    {tech}
-                  </Chip>
-                ))}
-              </View>
-            </View>
-          </ScrollView>
-        </Dialog.Content>
-        <Dialog.Actions style={styles.dialogActions}>
+      title={project.name}
+      maxWidth={DETAIL_DIALOG_MAX_WIDTH_WIDE}
+      scrollable
+      actions={
+        <>
+          <Button onPress={onDismiss}>Close</Button>
           {project.website_link && (
             <Button
               mode="contained"
               onPress={() => Linking.openURL(project.website_link!)}
-              style={[
-                styles.siteButton,
-                {
-                  backgroundColor: theme === "dark" ? "#4EC9B0" : "#0a7ea4",
-                },
-              ]}
-              labelStyle={styles.buttonLabel}
-              icon={({ size, color }) => (
-                <Icon name="web" size={20} color="#FFFFFF" />
-              )}
             >
               Visit Site
             </Button>
@@ -176,93 +59,96 @@ export const ProjectDialog: React.FC<ProjectDialogProps> = ({
             <Button
               mode="contained"
               onPress={() => Linking.openURL(project.github_link!)}
-              style={[
-                styles.githubButton,
-                {
-                  backgroundColor: theme === "dark" ? "#2EA043" : "#238636",
-                },
-              ]}
-              labelStyle={styles.buttonLabel}
-              icon={({ size, color }) => (
-                <Icon name="github" size={20} color="#FFFFFF" />
-              )}
             >
               View Repository
             </Button>
           )}
-          <Button
-            mode="outlined"
-            onPress={onDismiss}
-            style={[
-              styles.closeButton,
-              {
-                borderColor:
-                  theme === "dark"
-                    ? "rgba(255, 255, 255, 0.2)"
-                    : "rgba(0, 0, 0, 0.2)",
-              },
-            ]}
-            labelStyle={[styles.buttonLabel, { color: colors.text }]}
-            icon={({ size, color }) => (
-              <Icon name="close" size={20} color={colors.text} />
-            )}
-          >
-            Close
-          </Button>
-        </Dialog.Actions>
+        </>
+      }
+    >
+      <View style={styles.heroRow}>
+        <View style={styles.logoFrame}>
+          {project.image ? (
+            <AppImage
+              source={getImageSource(project.image)}
+              style={styles.logoImage}
+              contentFit="contain"
+              placeholderKind="logo"
+              recyclingKey={project.image}
+              accessible
+              accessibilityLabel={`${project.name} logo`}
+            />
+          ) : (
+            <Icon
+              name="code-braces"
+              size={LOGO_SIZE * 0.4}
+              color={
+                theme === "dark"
+                  ? "rgba(255, 255, 255, 0.3)"
+                  : "rgba(0, 0, 0, 0.3)"
+              }
+            />
+          )}
+        </View>
+        <View style={styles.heroContent}>
+          <Text style={[styles.description, { color: colors.text }]}>
+            {project.description}
+          </Text>
+          <Text style={[styles.meta, { color: colors.text }]}>
+            <Text style={styles.metaLabel}>Role: </Text>
+            {project.role}
+          </Text>
+        </View>
       </View>
-    </AppFullScreenOverlay>
+
+      <View style={styles.section}>
+        <Text style={[styles.sectionTitle, { color: colors.text }]}>
+          Responsibilities
+        </Text>
+        {project.responsibilities.map((responsibility, index) => (
+          <Text key={index} style={[styles.bodyText, { color: colors.text }]}>
+            • {responsibility}
+          </Text>
+        ))}
+      </View>
+
+      <View style={styles.section}>
+        <Text style={[styles.sectionTitle, { color: colors.text }]}>
+          Tech Stack
+        </Text>
+        <View style={styles.techStack}>
+          {project.tech_stack.map((tech, techIndex) => (
+            <Chip
+              key={techIndex}
+              style={[
+                styles.techChip,
+                {
+                  backgroundColor:
+                    theme === "dark"
+                      ? "rgba(255, 255, 255, 0.1)"
+                      : "rgba(0, 0, 0, 0.05)",
+                },
+              ]}
+              textStyle={[styles.techChipText, { color: colors.text }]}
+            >
+              {tech}
+            </Chip>
+          ))}
+        </View>
+      </View>
+    </AppDetailDialog>
   );
 };
 
 const styles = StyleSheet.create({
-  overlayCenter: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 16,
-  },
-  dialog: {
-    flexDirection: "column",
-    flex: 1,
-    maxHeight: "90%",
-  },
-  dialogSurface: {
-    borderRadius: 12,
-    overflow: "hidden",
-    elevation: 5,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
-  dialogTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    paddingTop: 16,
-    paddingHorizontal: 24,
-  },
-  dialogContent: {
-    paddingHorizontal: 24,
-    paddingVertical: 16,
-    flex: 1,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollContent: {
-    paddingBottom: 16,
-    flexGrow: 1,
-  },
-  dialogHeader: {
+  heroRow: {
     flexDirection: "row",
     gap: 16,
-    marginBottom: 24,
+    marginBottom: SECTION_MARGIN,
   },
-  dialogImageContainer: {
+  logoFrame: {
+    width: LOGO_SIZE,
+    height: LOGO_SIZE,
     borderRadius: 8,
     overflow: "hidden",
     backgroundColor: "rgba(255, 255, 255, 0.05)",
@@ -270,56 +156,43 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexShrink: 0,
   },
-  dialogImage: {
+  logoImage: {
     width: "60%",
     height: "60%",
     borderRadius: 8,
   },
-  dialogHeaderContent: {
+  heroContent: {
     flex: 1,
   },
-  dialogSection: {
-    marginBottom: 24,
-  },
-  dialogSectionTitle: {
-    fontSize: 16,
-    fontWeight: "600",
-    marginBottom: 12,
-  },
-  dialogText: {
+  description: {
     fontSize: 14,
     lineHeight: 20,
     marginBottom: 8,
   },
-  dialogTechStack: {
+  meta: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  metaLabel: {
+    fontWeight: "600",
+  },
+  section: {
+    marginBottom: SECTION_MARGIN,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginBottom: 12,
+  },
+  bodyText: {
+    fontSize: 14,
+    lineHeight: 20,
+    marginBottom: 8,
+  },
+  techStack: {
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 8,
-  },
-  dialogActions: {
-    paddingHorizontal: 24,
-    paddingBottom: 16,
-    paddingTop: 8,
-    justifyContent: "flex-end",
-    gap: 12,
-  },
-  githubButton: {
-    borderRadius: 6,
-    marginRight: 0,
-  },
-  siteButton: {
-    borderRadius: 6,
-    marginRight: 0,
-  },
-  closeButton: {
-    borderRadius: 6,
-    borderWidth: 1,
-  },
-  buttonLabel: {
-    fontSize: 14,
-    fontWeight: "500",
-    textTransform: "none",
-    paddingHorizontal: 4,
   },
   techChip: {
     height: 24,

@@ -22,6 +22,8 @@ const badgeImages: Record<string, ImageSourcePropType> = {
   "azure-foundation": require("../assets/images/badges/microsoft-certified-fundamentals-badge.png"),
   "azure-associate": require("../assets/images/badges/microsoft-certified-associate-badge.png"),
   "azure-expert": require("../assets/images/badges/microsoft-certified-expert-badge.png"),
+  "snowflake": require("../assets/images/badges/snowflake.png"),
+  "github-administration": require("../assets/images/badges/github-administration.png"),
 };
 
 export function resolveBadgeKey(cert: Certification): string | null {
@@ -56,4 +58,16 @@ export function getBadgeSource(cert: Certification): ImageSourcePropType | null 
 
 export function isPlaceholderCredentialUrl(url: string): boolean {
   return url.includes("TODO_REPLACE");
+}
+
+export function getCredentialAction(
+  cert: Certification,
+  linkedInFallback: string
+): { url: string; label: string } {
+  const isLinkedInProfile = cert.credentialUrl.includes(
+    "linkedin.com/in/kingsly-m-062a7bb8"
+  );
+  const url = isLinkedInProfile ? linkedInFallback : cert.credentialUrl;
+  const label = isLinkedInProfile ? "View on LinkedIn" : "View credential";
+  return { url, label };
 }

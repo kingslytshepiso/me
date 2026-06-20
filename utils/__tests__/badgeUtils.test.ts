@@ -1,6 +1,7 @@
 import type { Certification } from "../badgeUtils";
 import {
   getBadgeImageSource,
+  getCredentialAction,
   resolveBadgeKey,
   usesIconFallback,
 } from "../badgeUtils";
@@ -68,5 +69,61 @@ describe("badgeUtils", () => {
         azureLevel: null,
       })
     ).toBe("python-pcep");
+  });
+
+  it("resolves snowflake and github-administration badge keys", () => {
+    const snowflake: Certification = {
+      ...base,
+      id: "snowpro-core",
+      name: "SnowPro Core",
+      badgeKey: "snowflake",
+      azureLevel: null,
+    };
+    const github: Certification = {
+      ...base,
+      id: "github-administration",
+      name: "GitHub Administration",
+      badgeKey: "github-administration",
+      azureLevel: null,
+    };
+    expect(resolveBadgeKey(snowflake)).toBe("snowflake");
+    expect(usesIconFallback(snowflake)).toBe(false);
+    expect(resolveBadgeKey(github)).toBe("github-administration");
+    expect(getBadgeImageSource(github)).not.toBeNull();
+  });
+
+  describe("getCredentialAction", () => {
+    const linkedInFallback = "https://www.linkedin.com/in/kingsly-m-062a7bb8";
+
+    it("returns credential URL and label for verification links", () => {
+      const cert: Certification = {
+        ...base,
+        id: "github-administration",
+        name: "GitHub Administration",
+        badgeKey: "github-administration",
+        azureLevel: null,
+        credentialUrl:
+          "https://learn.microsoft.com/api/credentials/share/en-us/example",
+      };
+      expect(getCredentialAction(cert, linkedInFallback)).toEqual({
+        url: cert.credentialUrl,
+        label: "View credential",
+      });
+    });
+
+    it("falls back to LinkedIn for profile placeholder URLs", () => {
+      const cert: Certification = {
+        ...base,
+        id: "aws-saa",
+        name: "SAA",
+        badgeKey: "aws-saa",
+        azureLevel: null,
+        credentialUrl: linkedInFallback,
+      };
+      expect(getCredentialAction(cert, linkedInFallback)).toEqual({
+        url: linkedInFallback,
+        label: "View on LinkedIn",
+      });
+    });
   });
 });
