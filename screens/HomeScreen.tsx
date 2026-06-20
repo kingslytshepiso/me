@@ -75,10 +75,10 @@ export default function HomeScreen() {
             <View style={styles.introContainer}>
               <Text style={[styles.intro, { color: colors.text }]}>
                 Full-stack developer building scalable applications with Java
-                Spring Boot, React, and AWS/Azure. I ship AI-powered solutions
-                and modernize legacy systems—currently evolving Droppa&apos;s
-                platform while delivering high-impact work across cloud, APIs,
-                and mobile.
+                Spring Boot, React, Angular, and AWS/Azure. I ship AI-powered
+                solutions and modernize legacy systems—currently partnering with
+                organizations to evolve their platforms while delivering
+                high-impact work across cloud, APIs, and mobile.
               </Text>
             </View>
           </View>

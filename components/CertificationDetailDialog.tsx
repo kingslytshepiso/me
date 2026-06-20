@@ -2,14 +2,18 @@ import { Ionicons } from "@expo/vector-icons";
 import { AppImage } from "./AppImage";
 import React from "react";
 import { Linking, StyleSheet, Text, View } from "react-native";
-import { Button, Dialog } from "react-native-paper";
+import { Button } from "react-native-paper";
 import { Colors } from "../constants/Colors";
 import { BADGE_SIZE } from "../constants/badgeLayout";
 import { useTheme } from "../context/ThemeContext";
 import { LINKEDIN_PROFILE_URL } from "../constants/profileLinks";
-import { Certification, getBadgeImageSource } from "../utils/badgeUtils";
+import {
+  Certification,
+  getBadgeImageSource,
+  getCredentialAction,
+} from "../utils/badgeUtils";
 import { formatCertDate } from "../utils/formatCertDate";
-import { AppFullScreenOverlay } from "./AppFullScreenOverlay";
+import { AppDetailDialog } from "./AppDetailDialog";
 
 interface CertificationDetailDialogProps {
   cert: Certification | null;
@@ -30,95 +34,66 @@ export function CertificationDetailDialog({
   if (!cert) return null;
 
   const imageSource = getBadgeImageSource(cert);
-  const surfaceColor = theme === "dark" ? "#1E1E1E" : "#FFFFFF";
+  const { url: credentialUrl, label: credentialLabel } = getCredentialAction(
+    cert,
+    linkedInUrl
+  );
 
-  const handleViewLinkedIn = () => {
-    Linking.openURL(linkedInUrl);
+  const handleViewCredential = () => {
+    Linking.openURL(credentialUrl);
   };
 
   return (
-    <AppFullScreenOverlay
+    <AppDetailDialog
       visible={visible}
       onDismiss={onDismiss}
       scrimAccessibilityLabel="Close certification details"
-      contentStyle={styles.overlayCenter}
-    >
-      <View style={[styles.dialogSurface, { backgroundColor: surfaceColor }]}>
-        <Dialog.Title style={[styles.title, { color: colors.text }]}>
-          {cert.name}
-        </Dialog.Title>
-        <Dialog.Content>
-          <View style={styles.content}>
-            <View
-              style={[
-                styles.badgeFrame,
-                {
-                  backgroundColor:
-                    theme === "dark"
-                      ? "rgba(255, 255, 255, 0.06)"
-                      : "rgba(0, 0, 0, 0.04)",
-                },
-              ]}
-            >
-              {imageSource ? (
-                <AppImage
-                  source={imageSource}
-                  style={styles.badgeImage}
-                  contentFit="contain"
-                  placeholderKind="badge"
-                  recyclingKey={cert.id}
-                />
-              ) : (
-                <Ionicons
-                  name="ribbon-outline"
-                  size={48}
-                  color={colors.tint}
-                />
-              )}
-            </View>
-            <Text style={[styles.meta, { color: colors.text }]}>
-              {cert.issuer}
-            </Text>
-            <Text style={[styles.metaSecondary, { color: colors.text }]}>
-              Earned {formatCertDate(cert.earnedDate)}
-            </Text>
-          </View>
-        </Dialog.Content>
-        <Dialog.Actions>
+      title={cert.name}
+      actions={
+        <>
           <Button onPress={onDismiss}>Close</Button>
-          <Button mode="contained" onPress={handleViewLinkedIn}>
-            View on LinkedIn
+          <Button mode="contained" onPress={handleViewCredential}>
+            {credentialLabel}
           </Button>
-        </Dialog.Actions>
+        </>
+      }
+    >
+      <View style={styles.content}>
+        <View
+          style={[
+            styles.badgeFrame,
+            {
+              backgroundColor:
+                theme === "dark"
+                  ? "rgba(255, 255, 255, 0.06)"
+                  : "rgba(0, 0, 0, 0.04)",
+            },
+          ]}
+        >
+          {imageSource ? (
+            <AppImage
+              source={imageSource}
+              style={styles.badgeImage}
+              contentFit="contain"
+              placeholderKind="badge"
+              recyclingKey={cert.id}
+            />
+          ) : (
+            <Ionicons name="ribbon-outline" size={48} color={colors.tint} />
+          )}
+        </View>
+        <Text style={[styles.meta, { color: colors.text }]}>{cert.issuer}</Text>
+        <Text style={[styles.metaSecondary, { color: colors.text }]}>
+          Earned {formatCertDate(cert.earnedDate)}
+        </Text>
       </View>
-    </AppFullScreenOverlay>
+    </AppDetailDialog>
   );
 }
 
 const DIALOG_BADGE_SIZE = BADGE_SIZE + 24;
 
 const styles = StyleSheet.create({
-  overlayCenter: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 24,
-  },
-  dialogSurface: {
-    maxWidth: 400,
-    width: "100%",
-    borderRadius: 12,
-    overflow: "hidden",
-    elevation: 5,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-  },
-  title: {
-    fontSize: 18,
-    lineHeight: 24,
-  },
   content: {
     alignItems: "center",
     gap: 12,
